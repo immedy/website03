@@ -8,13 +8,14 @@
                     <div class="card-body">
                         <div class="mb-10">
                             <label for="exampleFormControlInput1" class="required form-label">Judul Berita</label>
-                            <input type="text" class="form-control form-control-solid" placeholder="Judul"
+                            <input type="text" class="form-control form-control-solid" value="{{ $berita->judul }}"
                                 name="judul" />
-                                <input type="text" name="id" hidden>
+                                <input type="text" name="id" hidden value="{{ $berita->id }}">
                         </div>
                         <div class="mb-10">
                             <label for="exampleFormControlInput1" class="required form-label">Kategori</label>
-                            <select class="form-select form-select-solid" name="kategori" aria-label="Select example">
+                            <select class="form-select form-select-solid"  name="kategori">
+                                <option value="">{{ $berita->kategori }}</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
@@ -27,7 +28,7 @@
                         </div>
                         <textarea name="kontent" id="editor" cols="30" rows="1000" required placeholder="Tulis Artikel Di sini">
                     <div id="editor" >
-
+                        {!! $berita->kontent !!}
                     </div>
                 </textarea>
                     </div>

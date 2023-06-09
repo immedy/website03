@@ -96,7 +96,7 @@
                                                             <!--end::Svg Icon-->
                                                         </a>
                                                         <form action="{{ route('hapus',$p->id) }}" method="post"> @csrf @method('delete')
-                                                            <button onclick="confirm ('Yakin Ingin Menghapus Data ini ?')"
+                                                            <button onclick="return confirm ('Yakin Ingin Menghapus Data ini ?')"
                                                                 class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
                                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
                                                                 <span class="svg-icon svg-icon-3">

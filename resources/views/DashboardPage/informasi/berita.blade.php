@@ -40,30 +40,53 @@
                                 <thead>
                                     <tr class="fw-bolder text-muted">
                                         <th class="min-w-5px">No</th>
-                                        <th class="min-w-150px">Judul</th>
-                                        
-                                        <th class="min-w-100px text-end">Actions</th>
+                                        <th class="min-w-350px">Judul</th>
+                                        <th class="min-w-50px">Kategori</th>
+                                        <th class="min-w-50px">Pegawai</th>
+                                        <th class="min-w-50px">Ruangan</th>
+                                        <th class="min-w-10px text-end">Actions</th>
                                     </tr>
                                 </thead>
-                                <!--end::Table head-->
-                                <!--begin::Table body-->
                                 <tbody>
-                                    {{-- @foreach ($Menu as $p) --}}
+                                    @foreach ($berita as $p)
                                         <tr>
                                             <td>
-                                                {{-- {{ $loop->iteration }} --}}
+                                                {{ $loop->iteration }}
                                             </td>
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div class="d-flex justify-content-start flex-column">
                                                         <a href="#"
-                                                            class="text-dark fw-bolder text-hover-primary fs-6"></a>
+                                                            class="text-dark fw-bolder text-hover-primary fs-6">{{ $p->judul }}</a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="d-flex justify-content-start flex-column">
+                                                        <a href="#"
+                                                            class="text-dark fw-bolder text-hover-primary fs-6">{{ $p->kategori }}</a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex align-items-center" >
+                                                    <div class="d-flex justify-content-start flex-column">                                                        <a href="#"
+                                                            class="text-dark fw-bolder text-hover-primary fs-6">{{ $p->user_id }}</a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="d-flex justify-content-start flex-column">
+                                                        <a href="#"
+                                                            class="text-dark fw-bolder text-hover-primary fs-6" style="text-justify: inter-cluster">{{ $p->ruangan }}</a>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="d-flex justify-content-end flex-shrink-0">
-                                                    <a href=""
+                                                    <a href="{{ route('detailberita',$p->id) }}"
                                                         class="btn btn-icon btn-bg-light btn-active-color-success btn-sm me-1">
                                                         <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
                                                         <span class="svg-icon svg-icon-3">
@@ -79,8 +102,8 @@
                                                         </span>
                                                         <!--end::Svg Icon-->
                                                     </a>
-                                                    <form action="" method="post"> @csrf @method('delete')
-                                                        <button onclick="confirm ('Yakin Ingin Menghapus Data ini ?')"
+                                                    <form action="{{ route('hapusberita',$p->id) }}" method="post"> @csrf @method('delete')
+                                                        <button onclick=" return confirm ('Yakin Ingin Menghapus Data ini ?')"
                                                             class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm">
                                                             <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
                                                             <span class="svg-icon svg-icon-3">
@@ -103,7 +126,7 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                    {{-- @endforeach --}}
+                                    @endforeach
                                 </tbody>
                                 <!--end::Table body-->
                             </table>

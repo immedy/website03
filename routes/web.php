@@ -33,14 +33,16 @@ Route::controller(MenuUtamaController::class)->group(function(){
     route::get('/tampil/{id}','show')->name('tampil');
 });
 Route::controller(ProfilController::class)->group(function(){
-    route::get('/sejarah','sejarah');
-    route::get('/visimisimottonilai','visimisi');
-    route::get('/strukturorganisasi','organisasi');
+    route::get('/profil/sejarah','sejarah');
+    route::get('/profil/visimisimottonilai','visimisi');
+    route::get('/profil/strukturorganisasi','organisasi');
 
 });
 Route::controller(InformasiController::class)->group(function(){
     route::get('/dashboard/berita','index');
     route::get('/dashboard/berita/create','beritacreate');
-    route::post('/simpan','simpan')->name('simpanberita');
+    route::get('/dashboard/berita/edit/{id}','detailberita')->name('detailberita');
+    route::delete('/dashboard/berita/hapus/{id}','hapusberita')->name('hapusberita');
+    route::post('/simpan','simpanOrupdate')->name('simpanberita');
 });
 

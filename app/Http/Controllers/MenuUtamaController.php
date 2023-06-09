@@ -34,7 +34,7 @@ class MenuUtamaController extends Controller
             $ValidasiMenu['gambar'] = $request->file('gambar')->store('GambarMenuUtama');
         }
 
-        MenuUtama::updateOrInsert(['id' => $id, 'user' => 1], $ValidasiMenu);
+        MenuUtama::updateOrCreate(['id' => $id, 'user' => 1], $ValidasiMenu);
 
         if ($ValidasiMenu) {
             Alert::success('Berhasil');

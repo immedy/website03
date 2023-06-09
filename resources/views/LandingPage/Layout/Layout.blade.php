@@ -68,12 +68,12 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a class="active" href="/">Home</a></li>
-                                        <li><a href="#">Profil<i class="ti-angle-down"></i></a>
+                                        <li><a class="{{ Request::is('/')?'active' : '' }}" href="/">Home</a></li>
+                                        <li><a href="#" class="{{ Request::is('profil/*')?'active' : '' }}">Profil<i class="ti-angle-down "></i></a>
                                             <ul class="submenu">
-                                                <li><a href="/visimisimottonilai">Visi Misi Dan Nilai</a></li>
-                                                <li><a href="/sejarah">Sejarah</a></li>
-                                                <li><a href="/strukturorganisasi">Strukrur Organisasi</a></li>
+                                                <li><a href="/profil/visimisimottonilai" >Visi Misi Dan Nilai</a></li>
+                                                <li><a href="/profil/sejarah">Sejarah</a></li>
+                                                <li><a href="/profil/strukturorganisasi">Strukrur Organisasi</a></li>
                                                 <li><a href="">Prestasi</a></li>
                                             </ul>
                                         </li>
