@@ -138,6 +138,7 @@
         }, 3000);
     </script>
     
+    
     @yield('KONTEN')
     <footer class="footer">
         <div class="footer_top">
