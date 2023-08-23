@@ -42,31 +42,35 @@
                 <div class="col-xl-4 col-md-4">
                     <div class="single_service">
                         <div class="icon">
-                            <i class="flaticon-electrocardiogram"></i>
+                            <i >
+                            <img src="{{asset('LandingPage/icon/hospital-bed.png')}}" alt="">
+                            </i>
                         </div>
-                        <h3>Hospitality</h3>
-                        <p>Clinical excellence must be the priority for any health care service provider.</p>
-                        <a href="#" class="boxed-btn3-white">Apply For a Bed</a>
+                        <h3>Tempat Tidur</h3>                        
+                        <a href="#" class="boxed-btn3-white">Lihat</a>
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-4">
                     <div class="single_service">
                         <div class="icon">
-                            <i class="flaticon-emergency-call"></i>
+                            <i>                            
+                            <img src="{{asset('LandingPage/icon/pharmacy.png')}}" alt="">
+                            </i>
                         </div>
-                        <h3>Emergency Care</h3>
-                        <p>Clinical excellence must be the priority for any health care service provider.</p>
-                        <a href="#" class="boxed-btn3-white">+10 672 356 3567</a>
+                        <h3>Instalasi Rawat Jalan</h3>                    
+                        <a  class="boxed-btn3-white">Senin - Jumat</a>
+                        <a  class="boxed-btn3-white">08:00 - 14:00</a>
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-4">
                     <div class="single_service">
                         <div class="icon">
-                            <i class="flaticon-first-aid-kit"></i>
+                        <i>                            
+                            <img src="{{asset('LandingPage/icon/suggestion.png')}}" alt="">
+                            </i>
                         </div>
-                        <h3>Chamber Service</h3>
-                        <p>Clinical excellence must be the priority for any health care service provider.</p>
-                        <a href="#" class="boxed-btn3-white">Make an Appointment</a>
+                        <h3>Kritik Dan Saran</h3>
+                        <a href="#" class="boxed-btn3-white">Klik Disini</a>
                     </div>
                 </div>
             </div>
@@ -109,6 +113,77 @@
                         </div>
                     </div>
                 @endforeach
+            </div>
+        </div>
+    </div>
+    <div class="expert_doctors_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="doctors_title mb-55">
+                        <h3>Dokter Spesialis</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="expert_active owl-carousel">
+                        <div class="single_expert">
+                            <div class="expert_thumb">
+                                <img src="{{asset('LandingPage/img/experts/1.png')}}" alt="">
+                            </div>
+                            <div class="experts_name text-center">
+                                <h3>Mirazul Alom</h3>
+                                <span>Neurologist</span>
+                            </div>
+                        </div>
+                        <div class="single_expert">
+                            <div class="expert_thumb">
+                                <img src="{{asset('LandingPage/img/experts/2.png')}}" alt="">
+                            </div>
+                            <div class="experts_name text-center">
+                                <h3>Mirazul Alom</h3>
+                                <span>Neurologist</span>
+                            </div>
+                        </div>
+                        <div class="single_expert">
+                            <div class="expert_thumb">
+                                <img src="{{asset('LandingPage/img/experts/3.png')}}" alt="">
+                            </div>
+                            <div class="experts_name text-center">
+                                <h3>Mirazul Alom</h3>
+                                <span>Neurologist</span>
+                            </div>
+                        </div>
+                        <div class="single_expert">
+                            <div class="expert_thumb">
+                                <img src="{{asset('LandingPage/img/experts/4.png')}}" alt="">
+                            </div>
+                            <div class="experts_name text-center">
+                                <h3>Mirazul Alom</h3>
+                                <span>Neurologist</span>
+                            </div>
+                        </div>
+                        <div class="single_expert">
+                            <div class="expert_thumb">
+                                <img src="{{asset('LandingPage/img/experts/1.png')}}" alt="">
+                            </div>
+                            <div class="experts_name text-center">
+                                <h3>Mirazul Alom</h3>
+                                <span>Neurologist</span>
+                            </div>
+                        </div>
+                        <div class="single_expert">
+                            <div class="expert_thumb">
+                                <img src="{{asset('LandingPage/img/experts/2.png')}}" alt="">
+                            </div>
+                            <div class="experts_name text-center">
+                                <h3>Mirazul Alom</h3>
+                                <span>Neurologist</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
