@@ -3,12 +3,27 @@
 namespace App\Http\Controllers;
 
 use App\Models\berita;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class InformasiController extends Controller
 {
+    public function BeritaLandingPage()
+    {
+        return view('LandingPage.Konten.Informasi.berita',[
+            'berita' => berita::all()
+        ]);
+    }
+    public function BeritaLandingPageDetail($id)
+    {
+        $EnkripsiId = Crypt::decryptString($id);
+        return view('LandingPage.Konten.Informasi.detailberita',[
+            'detailberita' => berita::findOrFail($EnkripsiId)
+        ]);
+    }
     public function index()
     {
         return view('DashboardPage.informasi.berita',[
@@ -32,7 +47,8 @@ class InformasiController extends Controller
         if($request->hasFile('gambar')){
             $ValidasiBerita['gambar']= $request->file('gambar')->store('GambarBerita');
         }
-        berita::updateOrCreate(['id'=>$id,'ruangan'=>1, 'user_id'=>1], $ValidasiBerita);
+
+        berita::updateOrCreate(['id'=>$id,'ruangan'=>1, 'user_id'=>1, 'expert' => Str::limit(strip_tags($request->kontent, 70))], $ValidasiBerita);
         if($ValidasiBerita){
             Alert::Success('Berita Berhasil Terpost');
         }

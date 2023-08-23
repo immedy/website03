@@ -69,7 +69,7 @@
                             </a>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link " href="">
+                            <a class="menu-link " href="/dashboard/instalasi">
                                 <span class="menu-icon">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                     <span class="svg-icon svg-icon-2">

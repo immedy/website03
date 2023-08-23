@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\berita;
 use App\Models\MenuUtama;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -10,6 +11,12 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class MenuUtamaController extends Controller
 {
+    public function HalamanUtama()
+    {
+        return view('LandingPage.Konten.index',[
+            'berita' => berita::all()
+        ]);
+    }
     public function index()
     {
         return view('DashboardPage.Index', [

@@ -79,7 +79,7 @@
                                         </li>
                                         <li><a href="#">Informasi<i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
-                                                <li><a href="">Berita</a></li>
+                                                <li><a href="/informasi/berita">Berita</a></li>
                                                 <li><a href="">Capaian Indikator</a></li>
                                                 <li><a href="">Tata Tertib Pengunjung</a></li>
                                                 <li><a href="">Keluhan Dan Saran</a></li>
