@@ -82,8 +82,7 @@
                                             <ul class="submenu">
                                                 <li><a href="/informasi/berita">Berita</a></li>
                                                 <li><a href="">Capaian Indikator</a></li>
-                                                <li><a href="">Tata Tertib Pengunjung</a></li>
-                                                <li><a href="">Keluhan Dan Saran</a></li>
+                                                <li><a href="">Tata Tertib Pengunjung</a></li>                                                
                                             </ul>
                                         </li>
                                         <li><a href="#">layanan Medis<i class="ti-angle-down"></i></a>
