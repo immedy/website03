@@ -39,6 +39,7 @@
     <script src="{{ asset('DashboardPage/js/UserDetail.js') }}"></script>
     <script src="{{ asset('DashboardPage/js/validationpassword.js') }}"></script>
     <script src="{{ asset('DashboardPage/js/date/settings.js') }}"></script>
+    <script src="{{ asset('DashboardPage/js/Kritiksaran.js') }}"></script>
     <script>
         CKEDITOR.replace('editor');
     </script>

@@ -3,10 +3,13 @@
 use App\Models\MenuUtama;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\DokterController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\InstalasiController;
+use App\Http\Controllers\KritikSaranController;
 use App\Http\Controllers\MenuUtamaController;
+use App\Http\Controllers\referensiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,3 +55,20 @@ Route::controller(InstalasiController::class)->group(function(){
     route::get('/dashboard/instalasi/tambah','CreateInstalasi')->name('TambahInstalasi');
 });
 
+Route::controller(KritikSaranController::class)->group(function(){
+    route::get('/KritikSaran','index')->name('KritikSaran');
+    route::get('/dashboard/kritiksaran','show');
+    route::get('/dashboard/kritiksaran/{id}','TampilPesan')->name('TampilPesan');
+    route::post('/KritikSaranKirim','Kirim');
+});
+
+Route::controller(referensiController::class)->group(function(){
+    route::get('/dashboard/referensi','index');
+    route::post('/AddJenisReferensi','AddJenisReferensi')->name('AddJenisReferensi');
+    route::post('/AddReferensi','AddReferensi')->name('AddReferensi');
+});
+
+Route::controller(DokterController::class)->group(function(){
+    route::get('/dashboard/dokter','index');
+    route::post('/addDokter','addDokter')->name('addDokter');
+});

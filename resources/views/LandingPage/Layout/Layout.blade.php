@@ -27,6 +27,7 @@
     {{-- <link rel="stylesheet" href="{{ asset('LandingPage/css/responsive.css') }}"> --}}
 </head>
 <body>
+    @include('sweetalert::alert')
      <!-- header-start -->
      <header>
         <div class="header-area ">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\berita;
+use App\Models\dokter;
 use App\Models\MenuUtama;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -14,7 +15,8 @@ class MenuUtamaController extends Controller
     public function HalamanUtama()
     {
         return view('LandingPage.Konten.index',[
-            'berita' => berita::paginate(3)
+            'berita' => berita::paginate(3),
+            'dokter' => dokter::all()
         ]);
     }
     public function index()
@@ -41,7 +43,7 @@ class MenuUtamaController extends Controller
             $ValidasiMenu['gambar'] = $request->file('gambar')->store('GambarMenuUtama');
         }
 
-        MenuUtama::updateOrCreate(['id' => $id, 'user' => 1], $ValidasiMenu);
+        MenuUtama::updateOrInsert(['id' => $id, 'user' => 1], $ValidasiMenu);
 
         if ($ValidasiMenu) {
             Alert::success('Berhasil');

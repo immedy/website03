@@ -70,7 +70,7 @@
                             </i>
                         </div>
                         <h3>Kritik Dan Saran</h3>
-                        <a href="#" class="boxed-btn3-white">Klik Disini</a>
+                        <a href="{{ route('KritikSaran') }}" class="boxed-btn3-white">Klik Disini</a>
                     </div>
                 </div>
             </div>
@@ -121,67 +121,25 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="doctors_title mb-55">
-                        <h3>Dokter Spesialis</h3>
+                        <h3>Dokter</h3>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xl-12">
                     <div class="expert_active owl-carousel">
+                        @foreach ($dokter as $p)
                         <div class="single_expert">
                             <div class="expert_thumb">
-                                <img src="{{asset('LandingPage/img/experts/1.png')}}" alt="">
+                                <img src="{{asset('storage/' . $p->gambar) }}" alt="">
                             </div>
                             <div class="experts_name text-center">
-                                <h3>Mirazul Alom</h3>
-                                <span>Neurologist</span>
+                                <h3>{{ $p->nama }}</h3>
+                                <span>{{ $p->referensi->deskripsi }}</span>
                             </div>
-                        </div>
-                        <div class="single_expert">
-                            <div class="expert_thumb">
-                                <img src="{{asset('LandingPage/img/experts/2.png')}}" alt="">
-                            </div>
-                            <div class="experts_name text-center">
-                                <h3>Mirazul Alom</h3>
-                                <span>Neurologist</span>
-                            </div>
-                        </div>
-                        <div class="single_expert">
-                            <div class="expert_thumb">
-                                <img src="{{asset('LandingPage/img/experts/3.png')}}" alt="">
-                            </div>
-                            <div class="experts_name text-center">
-                                <h3>Mirazul Alom</h3>
-                                <span>Neurologist</span>
-                            </div>
-                        </div>
-                        <div class="single_expert">
-                            <div class="expert_thumb">
-                                <img src="{{asset('LandingPage/img/experts/4.png')}}" alt="">
-                            </div>
-                            <div class="experts_name text-center">
-                                <h3>Mirazul Alom</h3>
-                                <span>Neurologist</span>
-                            </div>
-                        </div>
-                        <div class="single_expert">
-                            <div class="expert_thumb">
-                                <img src="{{asset('LandingPage/img/experts/1.png')}}" alt="">
-                            </div>
-                            <div class="experts_name text-center">
-                                <h3>Mirazul Alom</h3>
-                                <span>Neurologist</span>
-                            </div>
-                        </div>
-                        <div class="single_expert">
-                            <div class="expert_thumb">
-                                <img src="{{asset('LandingPage/img/experts/2.png')}}" alt="">
-                            </div>
-                            <div class="experts_name text-center">
-                                <h3>Mirazul Alom</h3>
-                                <span>Neurologist</span>
-                            </div>
-                        </div>
+                        </div>                            
+                        @endforeach
+                        
                     </div>
                 </div>
             </div>

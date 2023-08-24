@@ -105,7 +105,7 @@
                             </a>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link " href="">
+                            <a class="menu-link " href="/dashboard/dokter">
                                 <span class="menu-icon">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                     <span class="svg-icon svg-icon-2">
@@ -142,7 +142,7 @@
                             </span>
                             <div class="menu-sub menu-sub-accordion menu-active-bg">
                                 <div class="menu-item">
-                                    <a class="menu-link" href="">
+                                    <a class="menu-link" href="/dashboard/kritiksaran">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -211,7 +211,7 @@
                                 </div>
                             </div>
                             <div class="menu-item">
-                                <a class="menu-link " href="/referensi">
+                                <a class="menu-link " href="/dashboard/referensi">
                                     <span class="menu-icon">
                                         <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                         <span class="svg-icon svg-icon-2">
