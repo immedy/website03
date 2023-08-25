@@ -96,7 +96,7 @@
 
                             </div>
                             <div class="department_content">
-                                <a href="/informasi/berita/{{ $p->id }}" target="_blank"><h2>{{ $p->judul }}</h2></a>
+                                <a href="/informasi/berita/{{ $p->slug }}" target="_blank"><h2>{{ $p->judul }}</h2></a>
                                 
                                 <p>{{ $p->expert }}</p>
                                 <p>
@@ -108,7 +108,7 @@
                                                 </svg>
                                             </span></i>{{ $p->created_at->diffForHumans() }}</small>
                                 </p>
-                                <a href="/informasi/berita/{{ Crypt::encryptString($p->id) }}" target="_blank" class="learn_more">Baca Selengkapnya</a>
+                                <a href="/informasi/berita/{{ $p->slug }}" target="_blank" class="learn_more">Baca Selengkapnya</a>
                             </div>
                         </div>
                     </div>

@@ -19,9 +19,9 @@ class InformasiController extends Controller
     }
     public function BeritaLandingPageDetail($id)
     {
-        $EnkripsiId = Crypt::decryptString($id);
+        // $EnkripsiId = Crypt::decryptString($id);
         return view('LandingPage.Konten.Informasi.detailberita',[
-            'detailberita' => berita::findOrFail($EnkripsiId)
+            'detailberita' => berita::where('slug',$id)->first()
         ]);
     }
     public function index()
@@ -47,7 +47,7 @@ class InformasiController extends Controller
         if($request->hasFile('gambar')){
             $ValidasiBerita['gambar']= $request->file('gambar')->store('GambarBerita');
         }
-
+        $ValidasiBerita['slug'] = Str::slug($request->judul, '-');
         berita::updateOrCreate(['id'=>$id,'ruangan'=>1, 'user_id'=>1, 'expert' => Str::limit(strip_tags($request->kontent, 70))], $ValidasiBerita);
         if($ValidasiBerita){
             Alert::Success('Berita Berhasil Terpost');

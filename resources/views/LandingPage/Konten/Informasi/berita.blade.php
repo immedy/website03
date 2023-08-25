@@ -11,7 +11,7 @@
                                     alt="">
                             </div>
                             <div class="blog_details">
-                              <a href="/informasi/berita/{{ Crypt::encryptString($p->id) }}">
+                              <a href="/informasi/berita/{{ $p->slug }}">
                                  <h1>{{ $p->judul }}</h1>
                               </a>                                
                                 <ul class="blog-info-link mt-3 mb-4">
