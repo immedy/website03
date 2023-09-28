@@ -1,13 +1,46 @@
+// Edit Username
 $(document).ready(function() {
-    $('table').on('click', '#user', function() {
-        var userURL = $(this).data('url');
-        $.get(userURL, function(data) {
-            $('#userShowModal').modal('show');
-            $('#user-pegawai').val(data.pegawai_id);
-            $('#user-id').val(data.id);
-            $('#user-username').val(data.username);
-            $('#user-password').val(data.password);
+    $('table').on('click', '#Username', function() {
+        var usernameURL = $(this).data('url');
+        $.get(usernameURL, function(data) {
+            $('#CariUsername').modal('show');
+            $('#user-nama').text(data.nama);
+            $('#id').val(data.id);
+            $('#user-user').val(data.username)
             
+            
+        });
+    });
+
+    var confirmationInput = document.getElementById("confirm-password");
+    var passwordInput = document.getElementById('user-password');
+    var submitButton = document.getElementById("validasi-password");
+    var confirmationError = document.getElementById("error");
+
+    confirmationInput.addEventListener("input", function() {
+        var password = passwordInput.value;
+        var password_confirmation = this.value;
+
+        if (password !== password_confirmation) {
+            confirmationError.classList.remove("d-none");
+            submitButton.disabled = true;
+        } else {
+            confirmationError.classList.add("d-none");
+            submitButton.disabled = false;
+        }
+    });
+});
+
+
+//Edit Pegawai
+$(document).ready(function() {
+    $('table').on('click', '#Pegawai', function() {
+        var pegawaiURL = $(this).data('url');
+        $.get(pegawaiURL, function(data) {
+            $('#EditPegawai').modal('show');
+            $('#user-nip').val(data.nip);
+            $('#user-id').val(data.id);
+            $('#user-namapegawai').val(data.nama)
         })
     });
 

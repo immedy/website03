@@ -10,6 +10,7 @@ use App\Http\Controllers\InstalasiController;
 use App\Http\Controllers\KritikSaranController;
 use App\Http\Controllers\MenuUtamaController;
 use App\Http\Controllers\referensiController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,4 +72,12 @@ Route::controller(referensiController::class)->group(function(){
 Route::controller(DokterController::class)->group(function(){
     route::get('/dashboard/dokter','index');
     route::post('/addDokter','addDokter')->name('addDokter');
+});
+
+Route::controller(UserController::class)->group(function(){
+    route::get('/ManajemenPengguna','pegawai')->middleware('auth');
+    route::get('/CariUsername/{id}','CariUsername')->name('CariUsername')->middleware('auth');
+    route::put('/AddorUpdate','AddorUpdate')->name('AddorUpdate')->middleware('auth');
+    route::put('/AddOrUpdatePegawai','AddOrUpdatePegawai')->name('AddOrUpdatePegawai')->middleware('auth');
+    route::get('/login','login')->name('login');
 });

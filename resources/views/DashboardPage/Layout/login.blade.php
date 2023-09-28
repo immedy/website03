@@ -11,7 +11,7 @@
             <!--begin::Wrapper-->
             <div class="w-lg-450px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
                 <!--begin::Form-->
-                <form method="post" action="/autentikasi" class="form w-100" novalidate="novalidate" id="kt_sign_in_form" action="#">
+                <form method="post" action="{{route('login')}}" class="form w-100" novalidate="novalidate" id="kt_sign_in_form" action="#">
                     @csrf
                     <!--begin::Heading-->
                     <div class="text-center mb-10">

@@ -16,4 +16,8 @@ class referensi extends Model
     {
         return $this->belongsTo(JenisReferensi::class,'jenisreferensi');
     }
+    public function User()
+    {
+        return $this->belongsToMany(User::class,'akses','id');
+    }
 }

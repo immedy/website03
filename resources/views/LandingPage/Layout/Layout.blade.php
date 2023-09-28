@@ -119,7 +119,7 @@
         <div class="slider_active owl-carousel">
             <div class="container-fluid px-0 mb-0">
                 <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                    <div class="carousel-inner" data-bs-interval="3000">
+                    <div class="carousel-inner" data-bs-interval="300">
                         <div class="carousel-item active">
                             <img class="w-100" src="{{ asset('LandingPage/img/banner/banner1.png') }}" alt="Image">
                         </div>
