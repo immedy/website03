@@ -67,7 +67,12 @@ class UserController extends Controller
         return back();
      }
 
-     public function login(Request $request)
+     public function HalamanLogin()
+     {
+        return view('DashboardPage.Layout.login');
+     }
+
+     public function Autentikasi(Request $request)
      {
          $credentials = $request->validate([
              'username' => ['required'],
@@ -87,4 +92,14 @@ class UserController extends Controller
          Alert::error('Username Dan Password Telah Dimusnahkan');
          return back();
      }
+     public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/login');
+    }
 }
