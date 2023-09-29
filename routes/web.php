@@ -75,9 +75,9 @@ Route::controller(DokterController::class)->group(function(){
 });
 
 Route::controller(UserController::class)->group(function(){
-    route::get('/ManajemenPengguna','pegawai')->middleware('auth');
-    route::get('/CariUsername/{id}','CariUsername')->name('CariUsername')->middleware('auth');
-    route::put('/AddorUpdate','AddorUpdate')->name('AddorUpdate')->middleware('auth');
-    route::put('/AddOrUpdatePegawai','AddOrUpdatePegawai')->name('AddOrUpdatePegawai')->middleware('auth');
+    route::get('/ManajemenPengguna','pegawai');
+    route::get('/CariUsername/{id}','CariUsername')->name('CariUsername');
+    route::put('/AddorUpdate','AddorUpdate')->name('AddorUpdate');
+    route::put('/AddOrUpdatePegawai','AddOrUpdatePegawai')->name('AddOrUpdatePegawai');
     route::get('/login','login')->name('login');
 });
