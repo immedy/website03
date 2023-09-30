@@ -258,7 +258,7 @@
                         <div class="fv-row mb-3">
                             <label class="text-dark fw-bolder text-hover-primary fs-6">Username</label>
                             <label class="text-dark fw-bolder text-hover-primary fs-6" id="pegawai_id"></label>
-                            <input type="text" name="username" id="user-nama" autofocus
+                            <input type="text" name="username" id="user-user" autofocus
                                 class="form-control form-control-solid mb-3 mb-lg-0" placeholder="" value=""
                                 required />
 

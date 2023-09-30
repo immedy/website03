@@ -6,7 +6,7 @@ $(document).ready(function() {
             $('#CariUsername').modal('show');
             $('#user-nama').text(data.nama);
             $('#id').val(data.id);
-            $('#user-user').val(data.username)
+            $('#user-user').val(data.user.username)
             
             
         });

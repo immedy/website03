@@ -27,7 +27,7 @@ class UserController extends Controller
 
     public function CariUsername($id)
     {
-        $username = Pegawai::find($id);
+        $username = Pegawai::with('user')->find($id);
         return response()->json($username);
     }
 
