@@ -65,6 +65,7 @@ Route::controller(referensiController::class)->group(function(){
     route::get('/dashboard/referensi','index')->middleware('auth');
     route::post('/AddJenisReferensi','AddJenisReferensi')->name('AddJenisReferensi')->middleware('auth');
     route::post('/AddReferensi','AddReferensi')->name('AddReferensi')->middleware('auth');
+    route::get('/dashboard/ruangan','Instalasi')->middleware('auth');
 });
 
 Route::controller(DokterController::class)->group(function(){

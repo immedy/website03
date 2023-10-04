@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\instalasi;
 use Illuminate\Http\Request;
 use App\Models\JenisReferensi;
 use App\Models\referensi;
+use App\Models\ruangan;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class referensiController extends Controller
@@ -40,5 +42,12 @@ class referensiController extends Controller
         }
         return back();
     }
+     public function Instalasi()
+     {
+        return view('DashboardPage.referensi.Ruangan',[
+            'instalasi' => instalasi::all(),
+            'ruangan' => ruangan::all()
+        ]);
+     }
 
 }
