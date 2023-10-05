@@ -49,5 +49,18 @@ class referensiController extends Controller
             'ruangan' => ruangan::all()
         ]);
      }
+     public function AddInstalasi(Request $request)
+     {
+        $id = $request->id;
+        $ValidasiInstalasi = $request->validate([
+            'instalasi' => 'required'
+        ]);
+        $ValidasiInstalasi['status'] = 1;
+        instalasi::create($ValidasiInstalasi);
+        if($ValidasiInstalasi){
+            Alert::Success('Sukses');
+        }
+        return back();
+     }
 
 }

@@ -81,7 +81,7 @@ class UserController extends Controller
  
          if (Auth::attempt($credentials)) {
              $credentials = auth()->user();
-             if ($credentials->status == '1' && $credentials->akses == '25') {
+             if ($credentials->status == '1' && $credentials->status == '1') {
                  $request->session()->regenerate();              
                  Alert::Toast('Selamat Datang','success');
                  return redirect('/dashboard');

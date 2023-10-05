@@ -42,7 +42,7 @@
                                         {{ $loop->iteration }}
                                     </div>
                                     <div class="flex-grow-1">
-                                        {{-- <a class="text-gray-800 text-hover-primary fw-bolder fs-6">{{ $p->deskripsi }}</a> --}}
+                                        <a class="text-gray-800 text-hover-primary fw-bolder fs-6">{{ $p->instalasi }}</a>
                                     </div>
                                 </div>
                             @endforeach
@@ -147,14 +147,14 @@
         <div class="modal-dialog border border-danger">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Jenis Referensi</h5>
+                    <h5 class="modal-title">Instalasi</h5>
                 </div>
-                <form action="{{ route('AddJenisReferensi') }}" method="post" id="kt_docs_formvalidation_text">
+                <form action="{{route('AddInstalasi')}}" method="post" id="kt_docs_formvalidation_text">
                     @csrf
                     <div class="modal-body">
                         <div class="fv-row mb-10">
                             <!--begin::Input-->
-                            <input type="text" name="deskripsi" class="form-control form-control-solid mb-3 mb-lg-0"
+                            <input type="text" name="instalasi" class="form-control form-control-solid mb-3 mb-lg-0"
                                 placeholder="" value="" required />
                             <!--end::Input-->
                         </div>
@@ -175,25 +175,25 @@
         <div class="modal-dialog border border-danger">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Jenis Referensi</h5>
+                    <h5 class="modal-title">Ruangan</h5>
                 </div>
-                <form action="{{ route('AddReferensi') }}" method="post">
+                <form action="" method="post">
                     @csrf
                     <div class="modal-body">
                         <div class="fv-row ">
-                            <label class="text-dark fw-bolder text-hover-primary fs-6">Referensi</label>
+                            <label class="text-dark fw-bolder text-hover-primary fs-6">Ruangan</label>
                             <select name="jenisreferensi" class="form-select form-select-solid"
                                 data-dropdown-parent="#modaldetailreferensi" data-control="select2"
                                 data-placeholder="Pilih Jenis Referensi" required>
                                 <option></option>
-                                {{-- @foreach ($JenisReferensi as $p)
-                                    <option value="{{ $p->id }}">{{ $p->deskripsi }}</option>
-                                @endforeach --}}
+                                @foreach ($instalasi as $p)
+                                    <option value="{{ $p->id }}">{{ $p->instalasi }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="fv-row mb-3">
-                            <label class="text-dark fw-bolder text-hover-primary fs-6">Kategori Di Dalam Referensi</label>
-                            <input type="text" name="deskripsi" class="form-control form-control-solid mb-3 mb-lg-0"
+                            <label class="text-dark fw-bolder text-hover-primary fs-6">Ruangan</label>
+                            <input type="text" name="ruangan" class="form-control form-control-solid mb-3 mb-lg-0"
                                 placeholder="" value="" required />
                             <!--end::Input-->
                         </div>

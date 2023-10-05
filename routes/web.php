@@ -66,6 +66,7 @@ Route::controller(referensiController::class)->group(function(){
     route::post('/AddJenisReferensi','AddJenisReferensi')->name('AddJenisReferensi')->middleware('auth');
     route::post('/AddReferensi','AddReferensi')->name('AddReferensi')->middleware('auth');
     route::get('/dashboard/ruangan','Instalasi')->middleware('auth');
+    route::post('AddInstalasi','AddInstalasi')->name('AddInstalasi')->middleware('auth');
 });
 
 Route::controller(DokterController::class)->group(function(){
@@ -74,7 +75,7 @@ Route::controller(DokterController::class)->group(function(){
 });
 
 Route::controller(UserController::class)->group(function(){
-    route::get('/ManajemenPengguna','pegawai')->middleware('auth');
+    route::get('/ManajemenPengguna','pegawai')->middleware(['auth','Level-2','Level-3']);
     route::get('/CariUsername/{id}','CariUsername')->name('CariUsername')->middleware('auth');
     route::put('/AddorUpdate','AddorUpdate')->name('AddorUpdate')->middleware('auth');
     route::put('/AddOrUpdatePegawai','AddOrUpdatePegawai')->name('AddOrUpdatePegawai')->middleware('auth');
