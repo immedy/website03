@@ -10,4 +10,9 @@ class ruangan extends Model
     use HasFactory;
     public $timestamps = false;
     protected $guarded = ['id'];
+
+    public function JenisInstalasi()
+    {
+        return $this->belongsTo(instalasi::class,'instalasi','id');
+    }
 }

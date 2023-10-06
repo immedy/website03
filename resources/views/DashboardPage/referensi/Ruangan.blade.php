@@ -109,6 +109,14 @@
                                                 <div class="d-flex align-items-center">
                                                     <div class="d-flex justify-content-start flex-column">
                                                         <a class="text-dark fw-bolder text-hover-primary fs-6">{{ $p->ruangan }}</a>
+                                                        <span class="text-muted fw-bold text-muted d-block fs-7">{{ $p->JenisInstalasi->instalasi }}</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="d-flex justify-content-start flex-column">
+                                                        <a class="text-dark fw-bolder text-hover-primary fs-6">{{ $p->penerima_order }}</a>
                                                     </div>
                                                 </div>
                                             </td>
