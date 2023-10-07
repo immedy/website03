@@ -4,11 +4,10 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use Symfony\Component\HttpFoundation\Response;
 
-class Level3
+class CheckPermission
 {
     /**
      * Handle an incoming request.
@@ -17,10 +16,9 @@ class Level3
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::user()->akses != 25){
-
-            Alert::Error('Anda harus 25');
-            return back();
+        if (auth()->check() && !auth()->user()->can(['DashboardPelaporan','DashboardMenuUtama'])) {
+            Alert::error('Tindakan ini tidak diizinkan.', 'Unauthorized')->persistent(true);
+            return back(); // Redirect ke halaman lain jika diperlukan
         }
         return $next($request);
     }

@@ -75,10 +75,12 @@ Route::controller(DokterController::class)->group(function(){
 });
 
 Route::controller(UserController::class)->group(function(){
-    route::get('/ManajemenPengguna','pegawai')->middleware(['auth','Level-2','Level-3']);
+    route::get('/ManajemenPengguna','pegawai')->middleware('auth','CheckPermission');
     route::get('/CariUsername/{id}','CariUsername')->name('CariUsername')->middleware('auth');
     route::put('/AddorUpdate','AddorUpdate')->name('AddorUpdate')->middleware('auth');
     route::put('/AddOrUpdatePegawai','AddOrUpdatePegawai')->name('AddOrUpdatePegawai')->middleware('auth');
+    route::get('/Dashboard/HakAkses/{id}','HakAkses');
+    route::post('/AddHakAkses','AddHakAkses')->name('AddHakAkses');
     route::get('/login','HalamanLogin')->name('login')->middleware('guest');
     route::post('/Autentikasi','Autentikasi')->name('Autentikasi');
     route::post('/logout','logout')->middleware('auth');

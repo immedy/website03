@@ -166,21 +166,26 @@
                                                                 <!--end::Svg Icon-->
                                                             </span>
                                                         </a>
-                                                        <a href="#"
-                                                            class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm me-1 border  border-danger">
+                                                        @if (!empty($p->User) && $p->User->pegawai_id && $p->User->username && $p->User->password && $p->User->status == 1)
+                                                        <a href="/Dashboard/HakAkses/{{ $p->id }}"
+                                                            class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm me-1 border  border-danger"
+                                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            title="Hak Akses Pegawai">
                                                             <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
                                                             <span class="svg-icon svg-icon-3">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                                     height="16" fill="currentColor"
-                                                                    class="bi bi-trash" viewBox="0 0 16 16">
+                                                                    class="bi bi-list-ol" viewBox="0 0 16 16">
+                                                                    <path fill-rule="evenodd"
+                                                                        d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5z" />
                                                                     <path
-                                                                        d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z" />
-                                                                    <path
-                                                                        d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" />
+                                                                        d="M1.713 11.865v-.474H2c.217 0 .363-.137.363-.317 0-.185-.158-.31-.361-.31-.223 0-.367.152-.373.31h-.59c.016-.467.373-.787.986-.787.588-.002.954.291.957.703a.595.595 0 0 1-.492.594v.033a.615.615 0 0 1 .569.631c.003.533-.502.8-1.051.8-.656 0-1-.37-1.008-.794h.582c.008.178.186.306.422.309.254 0 .424-.145.422-.35-.002-.195-.155-.348-.414-.348h-.3zm-.004-4.699h-.604v-.035c0-.408.295-.844.958-.844.583 0 .96.326.96.756 0 .389-.257.617-.476.848l-.537.572v.03h1.054V9H1.143v-.395l.957-.99c.138-.142.293-.304.293-.508 0-.18-.147-.32-.342-.32a.33.33 0 0 0-.342.338v.041zM2.564 5h-.635V2.924h-.031l-.598.42v-.567l.629-.443h.635V5z" />
                                                                 </svg>
                                                             </span>
                                                             <!--end::Svg Icon-->
                                                         </a>
+                                                        @endif
+                                                        
                                                     </div>
                                                 </td>
                                             </tr>
@@ -188,7 +193,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            {{$pegawai->links()}}
+                            {{ $pegawai->links() }}
                         </div>
                     </div>
                 </div>
@@ -332,7 +337,7 @@
                             <input type="text" name="id" id="user-id" hidden>
                             <input type="text" name="nip" id="user-nip" autofocus
                                 class="form-control form-control-solid mb-3 mb-lg-0" placeholder="" value=""
-                                required  />
+                                required />
                             <!--end::Input-->
                         </div>
                         <div class="fv-row mb-3">
@@ -368,4 +373,5 @@
         </div>
     </div>
     {{-- End Edit Pegawai --}}
+
 @endsection

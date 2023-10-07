@@ -7,7 +7,9 @@ use App\Models\Pegawai;
 use App\Models\referensi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 use RealRashid\SweetAlert\Facades\Alert;
+use Spatie\Permission\Models\Permission;
 
 class UserController extends Controller
 {
@@ -72,6 +74,30 @@ class UserController extends Controller
         return view('DashboardPage.Layout.login');
      }
 
+     public function HakAkses($id)
+     {
+        // $EnkripsiId = Crypt::decryptString($id);
+
+        return view('DashboardPage.Pegawai.Hakakses',[
+            'pegawai' => Pegawai::findOrFail($id),
+            'Permission' => Permission::all()
+        ]);
+     }
+
+     public function AddHakAkses(Request $request)
+     {
+        // Validasi request di sini jika diperlukan
+
+        $user = User::findOrFail($request->id); // Mengambil objek User berdasarkan ID
+        $permission = $request->permission_id; // Mendapatkan izin yang dipilih dari formulir
+
+        // Memberikan izin menggunakan syncPermissions
+        $user->givePermissionTo([$permission]);
+
+    Alert::success('Berhasil', 'Izin diberikan dengan sukses');
+
+    return back();
+     }
      public function Autentikasi(Request $request)
      {
          $credentials = $request->validate([

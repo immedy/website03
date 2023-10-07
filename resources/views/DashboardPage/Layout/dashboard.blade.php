@@ -69,7 +69,7 @@
                                     <span class="menu-title">Dashboard</span>
                                 </a>
                             </div>
-                            @if (Auth()->user()->akses == 24 || Auth()->user()->akses == 25)
+                            {{-- @if (Auth()->user()->akses == 24 || Auth()->user()->akses == 25) --}}
                             <div class="menu-item">
                                 <a class="menu-link " href="/dashboard/instalasi">
                                     <span class="menu-icon">
@@ -228,8 +228,8 @@
                                     <span class="menu-title">Referensi</span>
                                 </a>
                             </div>
-                            @else
-                            @endif
+                            {{-- @else
+                            @endif --}}
                         </div>
                         <!--end::Menu-->
                     </div>

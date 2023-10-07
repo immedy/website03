@@ -4,7 +4,7 @@
         <!--begin::Container-->
         <div id="kt_content_container" class="container-fluid">
             <div class="row gy-5 g-xl-8">
-                @if (Auth()->user()->akses == 23)
+                @if (Auth()->user()->can('DashBoardDokumen'))
                 <div class="col-xl-12">
                     <!--begin::Tables Widget 9-->
                     <div class="card card-xl-stretch mb-5 mb-xl-8">
@@ -12,7 +12,7 @@
                         <div class="card-header border-0 pt-5">
                             <h3 class="card-title align-items-start flex-column">
                                 <span class="card-label fw-bolder fs-3 mb-1">Menu Utama</span>
-                            </h3>
+                            </h3>                            
                             <div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-trigger="hover" title="Tambah">
                                 <a href="{{ route('editor') }}" class="btn btn-sm btn-light btn-active-primary">
@@ -28,7 +28,7 @@
                                     </span>
                                     <!--end::Svg Icon-->Tambah
                                 </a>
-                            </div>
+                            </div>                           
                         </div>
                         <!--end::Header-->
                         <!--begin::Body-->
@@ -122,9 +122,9 @@
                     </div>
                     <!--end::Tables Widget 9-->
                 </div>
-                @else                    
+                @else
                 @endif
-                @if (Auth()->user()->akses == 24 )
+                @if (Auth()->user()->can('DashboardPelaporan'))
                 {{-- Begin Dokumen --}}
                 <div class="col-xl-12">
                     <!--begin::Tables Widget 9-->
@@ -249,7 +249,7 @@
                 @else                    
                 @endif
                 {{-- End Dokumen --}}
-                @if (Auth()->user()->akses == 25)
+                @if (Auth()->user()->can('DashboardMenuUtama'))
                 {{-- Begin Pelapolran --}}
                 <div class="col-xl-12">
                     <!--begin::Mixed Widget 2-->
@@ -463,7 +463,7 @@
                     </div>
                     <!--end::Mixed Widget 2-->
                 </div>
-                @else                    
+                @else                 
                 @endif
                 {{-- End Pelaporan --}}
             </div>
