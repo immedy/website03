@@ -75,10 +75,10 @@ class UserController extends Controller
 
      public function HakAkses($id)
      {
-        // $EnkripsiId = Crypt::decryptString($id);
+        $EnkripsiId = Crypt::decryptString($id);
 
         return view('DashboardPage.Pegawai.Hakakses',[
-            'pegawai' => Pegawai::findOrFail($id),
+            'pegawai' => Pegawai::findOrFail($EnkripsiId),
             'Permission' => Permission::all()
         ]);
      }

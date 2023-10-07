@@ -161,7 +161,7 @@
                                                             </span>
                                                         </a>
                                                         @if (!empty($p->User) && $p->User->pegawai_id && $p->User->username && $p->User->password && $p->User->status == 1)
-                                                        <a href="/Dashboard/HakAkses/{{ $p->id }}"
+                                                        <a href="/Dashboard/HakAkses/{{ Crypt::encryptString($p->id) }}"
                                                             class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm me-1 border  border-danger"
                                                             data-bs-toggle="tooltip" data-bs-placement="top"
                                                             title="Hak Akses Pegawai">
