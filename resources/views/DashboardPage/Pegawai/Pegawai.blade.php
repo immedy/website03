@@ -118,13 +118,7 @@
                                                             @if (!empty($p->User->username))
                                                                 <a
                                                                     class="text-dark fw-bolder text-hover-primary fs-6">{{ $p->User->username }}</a>
-                                                            @endif
-                                                            @if (!empty($p->User->akses))
-                                                                <span
-                                                                    class="text-muted fw-bold text-muted d-block fs-7">Jenis
-                                                                    Akses : {{ $p->User->ReferensiAkses->deskripsi }}
-                                                                </span>
-                                                            @endif
+                                                            @endif                                                            
                                                         </div>
                                                     </div>
                                                 </td>
@@ -276,19 +270,6 @@
                                 required hidden />
 
                             <!--end::Input-->
-                        </div>
-
-                        <div class="fv-row mb-3">
-                            <label class="text-dark fw-bolder text-hover-primary fs-6">Akses Level</label>
-                            <select name="akses" class="form-select form-select-solid"
-                                data-dropdown-parent="#CariUsername" data-control="select2" required
-                                data-placeholder="Pilih Akses">
-                                <option>
-                                    @foreach ($hakakses as $p)
-                                <option value="{{ $p->id }}">{{ $p->deskripsi }}</option>
-                                @endforeach
-                                </option>
-                            </select>
                         </div>
                         <div class="fv-row mb-3">
                             <label class="text-dark fw-bolder text-hover-primary fs-6">Password</label>

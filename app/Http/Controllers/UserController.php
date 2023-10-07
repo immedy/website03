@@ -40,7 +40,6 @@ class UserController extends Controller
             'pegawai_id' => 'required',
             'username' => 'required',
             'password' => 'required',
-            'akses' => 'required'
         ]);
         $ValidasiUser['password'] = bcrypt($ValidasiUser['password']);
         $ValidasiUser['status'] = 1;
