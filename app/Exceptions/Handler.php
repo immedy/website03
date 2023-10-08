@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use Throwable;
 use PDOException;
 use Illuminate\Database\QueryException;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Dflydev\DotAccessData\Exception\InvalidPathException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
@@ -57,4 +58,13 @@ class Handler extends ExceptionHandler
     //     }
     //     return parent::render($request, $e);
     // }
+    public function render($request, Throwable $exception)
+{
+    if ($exception instanceof \Spatie\Permission\Exceptions\UnauthorizedException) {
+        Alert::error('Anda Tidak Mempunyai Akses', 'Unauthorized')->persistent(true);
+        return back();
+    }
+
+    return parent::render($request, $exception);
+}
 }

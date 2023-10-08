@@ -11,6 +11,7 @@ use App\Http\Controllers\KritikSaranController;
 use App\Http\Controllers\MenuUtamaController;
 use App\Http\Controllers\referensiController;
 use App\Http\Controllers\UserController;
+use RealRashid\SweetAlert\Facades\Alert;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,7 +76,7 @@ Route::controller(DokterController::class)->group(function(){
 });
 
 Route::controller(UserController::class)->group(function(){
-    route::get('/ManajemenPengguna','pegawai')->middleware('auth','CheckPermission');
+    route::get('/ManajemenPengguna','pegawai')->middleware('permission:DashboardMenuUtama','permission:DashboardPelaporan');
     route::get('/CariUsername/{id}','CariUsername')->name('CariUsername')->middleware('auth');
     route::put('/AddorUpdate','AddorUpdate')->name('AddorUpdate')->middleware('auth');
     route::put('/AddOrUpdatePegawai','AddOrUpdatePegawai')->name('AddOrUpdatePegawai')->middleware('auth');
