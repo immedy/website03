@@ -185,12 +185,12 @@
                 <div class="modal-header">
                     <h5 class="modal-title">Ruangan</h5>
                 </div>
-                <form action="" method="post">
+                <form action="{{ route('AddRuangan') }}" method="post">
                     @csrf
                     <div class="modal-body">
                         <div class="fv-row ">
                             <label class="text-dark fw-bolder text-hover-primary fs-6">Ruangan</label>
-                            <select name="jenisreferensi" class="form-select form-select-solid"
+                            <select name="instalasi" class="form-select form-select-solid"
                                 data-dropdown-parent="#modaldetailreferensi" data-control="select2"
                                 data-placeholder="Pilih Jenis Referensi" required>
                                 <option></option>

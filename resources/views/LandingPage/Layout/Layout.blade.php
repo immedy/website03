@@ -87,18 +87,11 @@
                                         </li>
                                         <li><a href="#">layanan Medis<i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
-                                                <li><a href="">Instalasi Gawat Darurat</a></li>
-                                                <li><a href="">Instalasi Rawat Inap</a></li>
-                                                <li><a href="">Instalasi Rawat Jalan</a></li>
-                                                <li><a href="">Instalasi Care Unit (ICU)</a></li>
-                                                <li><a href="">Instalasi Bedah Sentral</a></li>
-                                                <li><a href="">Instalasi Laboratorium</a></li>
-                                                <li><a href="">Instalasi Radiologi</a></li>
-                                                <li><a href="">Instalasi Farmasi</a></li>
-                                                <li><a href="">Instalasi Pusat Sterilisasi, Sarana dan Sandang</a></li>
-                                                <li><a href="">Instalasi PSRS</a></li>                                           
-                                                <li><a href="">Instalasi Gizi</a></li>
-                                                <li><a href="">Instalasi Manajemen Data Dan Informasi</a></li>
+                                                @foreach ($instalasi as $p )
+                                                <li><a href="">{{ $p->instalasi }}</a></li>
+                                                @endforeach
+                                                
+                                                
                                             </ul>
                                         </li>
                                         <li><a href="contact.html">Jadwal Dokter</a></li>

@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\berita;
-use App\Models\kritiksaran;
+use App\Models\instalasi;
 use App\Models\referensi;
+use App\Models\kritiksaran;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -13,7 +14,8 @@ class KritikSaranController extends Controller
     public function index()
     {
         return view('LandingPage.Konten.KritikSaran',[
-            'nilai' => referensi::where('jenisreferensi',1)->get()
+            'nilai' => referensi::where('jenisreferensi',1)->get(),
+            'instalasi' => instalasi::all()
         ]);
     }
     public function show()

@@ -53,6 +53,7 @@ Route::controller(InformasiController::class)->group(function(){
 Route::controller(InstalasiController::class)->group(function(){
     route::get('/dashboard/instalasi','index')->middleware('auth');
     route::get('/dashboard/instalasi/tambah','CreateInstalasi')->name('TambahInstalasi')->middleware('auth');
+    route::get('/get-ruangan','getRuangan');
 });
 
 Route::controller(KritikSaranController::class)->group(function(){
@@ -68,6 +69,8 @@ Route::controller(referensiController::class)->group(function(){
     route::post('/AddReferensi','AddReferensi')->name('AddReferensi')->middleware('auth');
     route::get('/dashboard/ruangan','Instalasi')->middleware('auth');
     route::post('AddInstalasi','AddInstalasi')->name('AddInstalasi')->middleware('auth');
+    route::post('AddRuangan','AddRuangan')->name('AddRuangan')->middleware('auth');
+
 });
 
 Route::controller(DokterController::class)->group(function(){

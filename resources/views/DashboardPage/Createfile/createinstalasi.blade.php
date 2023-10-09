@@ -8,12 +8,17 @@
                     <div class="card-body">
                         <div class="mb-10">
                             <label for="exampleFormControlInput1" class="required form-label">Instalasi</label>
-                            <select type="text" class="form-control form-control-solid"  name="instalasi">
+                            <select type="text" class="form-control form-control-solid"  name="instalasi" id="instalasi">
+                                <option  selected value="" disabled></option>
+                                @foreach ($instalasi as $p )
+                                <option value="{{ $p->id }}">{{ $p->instalasi }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="mb-10">
                             <label for="exampleFormControlInput1" class="required form-label">Unit</label>
-                            <input type="text" class="form-control form-control-solid" placeholder="Unit" name="unit"/>
+                            <select type="text" class="form-control form-control-solid"  name="ruangan" id="ruangan">
+                            </select>
                         </div>
                         <div class="mb-10">
                             <label for="exampleFormControlInput1" class="form-label">Gambar</label>

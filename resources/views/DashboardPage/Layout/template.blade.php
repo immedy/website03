@@ -24,6 +24,8 @@
     <link href="{{ asset('DashboardPage/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('DashboardPage/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
     <script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
+    
 </head>
 
 <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed aside-enabled aside-fixed"
@@ -43,6 +45,31 @@
     <script>
         CKEDITOR.replace('editor');
     </script>
+    <script>
+       $(document).ready(function () {
+            $('#instalasi').on('change', function () {
+                var instalasi = $(this).val();
+                if (instalasi) {
+                    $.ajax({
+                        url: '/get-ruangan',
+                        type: 'GET',
+                        data: {instalasi: instalasi},
+                        success: function (data) {
+                            $('#ruangan').empty();
+                            $('#ruangan').append('<option value="">Pilih Ruangan</option>');
+                            $.each(data, function (key, value) {
+                                $('#ruangan').append('<option value="' + value.id + '">' + value.ruangan + '</option>');
+                            });
+                        }
+                    });
+                } else {
+                    $('#ruangan').empty();
+                    $('#ruangan').append('<option value="">Pilih Ruangan</option>');
+                }
+            });
+        });
+    </script>
+
 
 </body>
 <!--end::Body-->

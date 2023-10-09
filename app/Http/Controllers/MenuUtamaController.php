@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\berita;
 use App\Models\dokter;
+use App\Models\instalasi;
 use App\Models\MenuUtama;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -16,7 +17,8 @@ class MenuUtamaController extends Controller
     {
         return view('LandingPage.Konten.index',[
             'berita' => berita::paginate(3),
-            'dokter' => dokter::all()
+            'dokter' => dokter::all(),
+            'instalasi' => instalasi::all()
         ]);
     }
     public function index()

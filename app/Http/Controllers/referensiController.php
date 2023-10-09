@@ -63,4 +63,20 @@ class referensiController extends Controller
         return back();
      }
 
+     public function AddRuangan(Request $request)
+     {
+        $id = $request->id;
+        $ValidasiRuangan = $request->validate([
+            'instalasi' => 'required',
+            'ruangan' => 'required'
+        ]);
+        $ValidasiRuangan['penerima_order'] = 0;
+        $ValidasiRuangan['status'] = 1;
+        ruangan::create($ValidasiRuangan);
+        if($ValidasiRuangan){
+            Alert::Success('Sukses');
+        }
+        return back();
+     }
+
 }
