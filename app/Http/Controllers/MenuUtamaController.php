@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\berita;
 use App\Models\dokter;
 use App\Models\instalasi;
+use App\Models\laporankerusakan;
 use App\Models\MenuUtama;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -24,7 +25,8 @@ class MenuUtamaController extends Controller
     public function index()
     {
         return view('DashboardPage.Index', [
-            'Menu' => MenuUtama::all()
+            'Menu' => MenuUtama::all(),
+            'LaporanPengirim' => laporankerusakan::all()
         ]);
     }
     public function editor()
