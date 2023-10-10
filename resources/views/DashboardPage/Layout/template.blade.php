@@ -45,6 +45,7 @@
     <script>
         CKEDITOR.replace('editor');
     </script>
+    <script src="{{ asset('DashboardPage/js/tanggal.js') }}"></script>
     <script>
        $(document).ready(function () {
             $('#instalasi').on('change', function () {

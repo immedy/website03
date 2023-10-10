@@ -7,6 +7,7 @@ use App\Models\dokter;
 use App\Models\instalasi;
 use App\Models\laporankerusakan;
 use App\Models\MenuUtama;
+use App\Models\ruangan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -26,7 +27,8 @@ class MenuUtamaController extends Controller
     {
         return view('DashboardPage.Index', [
             'Menu' => MenuUtama::all(),
-            'LaporanPengirim' => laporankerusakan::all()
+            'LaporanPengirim' => laporankerusakan::all(),
+            'ruangan' => ruangan::where('penerima_order',1)->get()
         ]);
     }
     public function editor()

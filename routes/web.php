@@ -8,9 +8,11 @@ use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\InstalasiController;
 use App\Http\Controllers\KritikSaranController;
+use App\Http\Controllers\LaporanKerusakanController;
 use App\Http\Controllers\MenuUtamaController;
 use App\Http\Controllers\referensiController;
 use App\Http\Controllers\UserController;
+use App\Models\laporankerusakan;
 use RealRashid\SweetAlert\Facades\Alert;
 
 /*
@@ -88,4 +90,8 @@ Route::controller(UserController::class)->group(function(){
     route::get('/login','HalamanLogin')->name('login')->middleware('guest');
     route::post('/Autentikasi','Autentikasi')->name('Autentikasi');
     route::post('/logout','logout')->middleware('auth');
+});
+
+Route::controller(LaporanKerusakanController::class)->group(function(){
+    route::post('/AddlaporanKerusakan','AddLaporanKerusakan')->name('AddLaporanKerusakan')->middleware('auth');
 });
