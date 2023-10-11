@@ -56,6 +56,8 @@ Route::controller(InstalasiController::class)->group(function(){
     route::get('/dashboard/instalasi','index')->middleware('auth');
     route::get('/dashboard/instalasi/tambah','CreateInstalasi')->name('TambahInstalasi')->middleware('auth');
     route::get('/get-ruangan','getRuangan');
+    route::post('/AddLayanan','Addlayanan')->name('AddLayanan');
+    
 });
 
 Route::controller(KritikSaranController::class)->group(function(){

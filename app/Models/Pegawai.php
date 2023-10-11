@@ -20,7 +20,7 @@ class Pegawai extends Model
     
     public function ReferensiRuangan()
     {
-        return $this->belongsTo(referensi::class,'ruangan');
+        return $this->belongsTo(ruangan::class,'ruangan');
     }
     public function user()
     {

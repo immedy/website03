@@ -3,7 +3,7 @@
     <div class="post d-flex flex-column-fluid" id="kt_post">
         <div id="kt_content_container" class="container-fluid">
             <div class="card">
-                <form action="" method="post" enctype="multipart/form-data">
+                <form action="{{route('AddLayanan')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <div class="mb-10">

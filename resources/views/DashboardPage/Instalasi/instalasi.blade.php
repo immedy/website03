@@ -48,21 +48,21 @@
                                     <!--end::Table head-->
                                     <!--begin::Table body-->
                                     <tbody>
-                                        {{-- @foreach ($Menu as $p) --}}
+                                        @foreach ($instalasi as $p)
                                             <tr>
                                                 <td>
-                                                    {{-- {{ $loop->iteration }} --}}1
+                                                    {{ $loop->iteration }}
                                                 </td>
                                                 <td>
                                                     <div class="d-flex align-items-center">
                                                         <div class="d-flex justify-content-start flex-column">
                                                             <a href="#"
-                                                                class="text-dark fw-bolder text-hover-primary fs-6"></a>
+                                                                class="text-dark fw-bolder text-hover-primary fs-6">{{$p->JenisRuangan->ruangan}} </a>
                                                         </div>
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    das
+                                                {{$p->JenisInstalasi->instalasi}}
                                                 </td>
                                                 <td>
                                                     <div class="d-flex justify-content-end flex-shrink-0">
@@ -106,7 +106,7 @@
                                                     </div>
                                                 </td>
                                             </tr>
-                                        {{-- @endforeach --}}
+                                        @endforeach 
                                     </tbody>
                                     <!--end::Table body-->
                                 </table>

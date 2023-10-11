@@ -108,7 +108,7 @@
                                                     <div class="d-flex align-items-center">
                                                         <div class="d-flex justify-content-start flex-column">
                                                             <a class="text-dark fw-bolder text-hover-primary fs-6"></a>
-                                                            {{ $p->ReferensiRuangan->deskripsi }}
+                                                            {{ $p->ReferensiRuangan->ruangan }}
                                                         </div>
                                                     </div>
                                                 </td>
@@ -224,7 +224,7 @@
                                 data-placeholder="Pilih Jenis Referensi" required>
                                 <option></option>
                                 @foreach ($Ruangan as $p)
-                                    <option value="{{ $p->id }}">{{ $p->deskripsi }}</option>
+                                    <option value="{{ $p->id }}">{{ $p->ruangan }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -335,7 +335,7 @@
                                 data-placeholder="Pilih Ruangan" required>
                                 <option>
                                     @foreach ($Ruangan as $p)
-                                <option value="{{ $p->id }}">{{ $p->deskripsi }}</option>
+                                <option value="{{ $p->id }}">{{ $p->ruangan }}</option>
                                 @endforeach
                                 </option>
                             </select>

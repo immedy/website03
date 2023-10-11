@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Pegawai;
 use App\Models\referensi;
+use App\Models\ruangan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
@@ -22,7 +23,7 @@ class UserController extends Controller
     {
         return view('DashboardPage.Pegawai.Pegawai',[
             'pegawai' => Pegawai::with('ReferensiRuangan')->Filter()->paginate(25),
-            'Ruangan' => referensi::where('jenisreferensi',5)->get(),
+            'Ruangan' => ruangan::where('status', 1)->get(),
             'hakakses' => referensi::where('jenisreferensi',6)->get()
         ]);
     }
