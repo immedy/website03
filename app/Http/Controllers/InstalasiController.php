@@ -34,7 +34,8 @@ class InstalasiController extends Controller
     public function LayananInstalasi($id)
     {
         return view('LandingPage.Konten.LayananMedis.LayananInstalasi',[
-            'unit' => layanan::where('instalasi', $id)->get()
+            'unit' => layanan::where('instalasi', $id)->get(),
+            'instalasi' => instalasi::all()
         ]);
     }
     public function AddLayanan(Request $request)

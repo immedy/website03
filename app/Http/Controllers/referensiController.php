@@ -46,7 +46,7 @@ class referensiController extends Controller
      {
         return view('DashboardPage.referensi.Ruangan',[
             'instalasi' => instalasi::all(),
-            'ruangan' => ruangan::all()
+            'ruangan' => ruangan::orderBy('instalasi','asc')->get()
         ]);
      }
      public function AddInstalasi(Request $request)

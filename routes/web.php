@@ -57,6 +57,7 @@ Route::controller(InstalasiController::class)->group(function(){
     route::get('/dashboard/instalasi/tambah','CreateInstalasi')->name('TambahInstalasi')->middleware('auth');
     route::get('/get-ruangan','getRuangan');
     route::post('/AddLayanan','Addlayanan')->name('AddLayanan');
+    route::get('/LayananMedis/{id}','LayananInstalasi');
     
 });
 

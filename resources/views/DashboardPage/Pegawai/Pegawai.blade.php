@@ -44,7 +44,7 @@
                                                 class=" btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1 border border-info"
                                                 data-bs-toggle="modal" data-bs-target="#modalAddPegawai">
                                                 <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
-                                                <span class="svg-icon svg-icon-3">
+                                                <span class="svg-icon svg-icon-2">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                         fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
                                                         <path

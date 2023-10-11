@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\berita;
+use App\Models\instalasi;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
@@ -14,14 +15,16 @@ class InformasiController extends Controller
     public function BeritaLandingPage()
     {
         return view('LandingPage.Konten.Informasi.berita',[
-            'berita' => berita::all()
+            'berita' => berita::all(),
+            'instalasi' => instalasi::all()
         ]);
     }
     public function BeritaLandingPageDetail($id)
     {
         // $EnkripsiId = Crypt::decryptString($id);
         return view('LandingPage.Konten.Informasi.detailberita',[
-            'detailberita' => berita::where('slug',$id)->first()
+            'detailberita' => berita::where('slug',$id)->first(),
+            'instalasi' => instalasi::all()
         ]);
     }
     public function index()

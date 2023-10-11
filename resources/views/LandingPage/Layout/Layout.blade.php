@@ -87,20 +87,8 @@
                                         </li>
                                         <li><a href="#">layanan Medis<i class="ti-angle-down"></i></a>
                                             <ul class="submenu">                                               
-                                                {{-- <li><a href="">Instlasi Gawat Darurat</a></li>
-                                                <li><a href="">Instlasi Rawat Jalan</a></li>
-                                                <li><a href="">Instlasi Rawat Inap</a></li>
-                                                <li><a href="">Instlasi Care Unit</a></li>
-                                                <li><a href="">Instlasi Laboratorium</a></li>
-                                                <li><a href="">Instlasi Radiologi</a></li>
-                                                <li><a href="">Instlasi Farnasi</a></li>
-                                                <li><a href="">Instlasi Bedah Sentral</a></li>
-                                                <li><a href="">Instlasi Manajemen Data Dan Rekam Medis</a></li>
-                                                <li><a href="">Instlasi Gizi</a></li>
-                                                <li><a href="">Instalasi Pusat Sterilisasi, Sarana Dan Sandang</a></li>
-                                                <li><a href="">Instalasi PSRS</a></li> --}}
                                                 @foreach ($instalasi as $p )
-                                                <li><a href="">{{$p->instalasi}}</a></li>
+                                                <li><a href="/LayananMedis/{{ $p->id }}">{{$p->instalasi}}</a></li>
                                                 @endforeach
                                             </ul>
                                         </li>
