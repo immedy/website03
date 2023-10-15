@@ -15,9 +15,9 @@
                         <div class="mb-10">
                             <label for="exampleFormControlInput1" class="required form-label">Kategori</label>
                             <select class="form-select form-select-solid" name="kategori" aria-label="Select example">
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                @foreach ($kategori as $p )
+                                <option value="{{$p->id}}">{{$p->deskripsi}}</option>    
+                                @endforeach
                             </select>
                         </div>
                         <div class="mb-10">

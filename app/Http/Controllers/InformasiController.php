@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\berita;
 use App\Models\instalasi;
+use App\Models\referensi;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -35,7 +37,9 @@ class InformasiController extends Controller
     }
     public function beritacreate()
     {
-        return view('DashboardPage.informasi.sub.createBerita');
+        return view('DashboardPage.informasi.sub.createBerita',[
+            'kategori' => referensi::where('jenisreferensi', 8)->get()
+        ]);
     }
     public function simpanOrUpdate(Request $request)
     {
@@ -51,7 +55,7 @@ class InformasiController extends Controller
             $ValidasiBerita['gambar']= $request->file('gambar')->store('GambarBerita');
         }
         $ValidasiBerita['slug'] = Str::slug($request->judul, '-');
-        berita::updateOrCreate(['id'=>$id,'ruangan'=>1, 'user_id'=>1, 'expert' => Str::limit(strip_tags($request->kontent, 70))], $ValidasiBerita);
+        berita::updateOrCreate(['id'=>$id,'ruangan'=>1, 'user_id'=>Auth::user()->pegawai->id, 'expert' => Str::limit(strip_tags($request->kontent, 70))], $ValidasiBerita);
         if($ValidasiBerita){
             Alert::Success('Berita Berhasil Terpost');
         }
