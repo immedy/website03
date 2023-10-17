@@ -18,7 +18,7 @@ class MenuUtamaController extends Controller
     public function HalamanUtama()
     {
         return view('LandingPage.Konten.index',[
-            'berita' => berita::paginate(3),
+            'berita' => berita::latest()->paginate(3),
             'dokter' => dokter::all(),
             'instalasi' => instalasi::all()
         ]);
