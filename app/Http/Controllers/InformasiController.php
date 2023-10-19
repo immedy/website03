@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\berita;
 use App\Models\instalasi;
+use App\Models\layanan;
 use App\Models\referensi;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -79,5 +80,6 @@ class InformasiController extends Controller
         }
         return back();
     }
+    
     
 }

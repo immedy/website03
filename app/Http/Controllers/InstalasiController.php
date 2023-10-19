@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\layanan;
 use App\Models\ruangan;
 use App\Models\instalasi;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -41,12 +42,12 @@ class InstalasiController extends Controller
     public function AddLayanan(Request $request)
     {
         $validasiLayanan = $request->validate([
-            'instalasi' => 'required',
             'ruangan' => 'required',
             'gambar' => 'required|mimes:png,jpg|max:1028',
             'konten' => 'required',
         ]);
         $validasiLayanan['pegawai'] = Auth::user()->pegawai->id;
+        $validasiLayanan['instalasi'] = Str::slug($request->instalasi,'');
         $validasiLayanan['status'] = 1;
         if($request->hasFile('gambar')){
             $validasiLayanan['gambar']= $request->file('gambar')->store('GambarLayanan');
@@ -56,5 +57,61 @@ class InstalasiController extends Controller
             Alert::success('Suksess');
         }
         return redirect('/dashboard/instalasi');
+    }
+
+    public function EditLayanan($id)
+    {
+        return view('DashboardPage.Createfile.EditInstalasi',[
+            "unit" => layanan::findOrFail($id)
+        ]);
+    }
+
+    Public function InstalasiGawatDarurat()
+    {
+        return view('LandingPage.Konten.LayananMedis.LayananInstalasi',[
+            'unit' => layanan::where('instalasi', 1)->get()
+        ]);
+    }
+    Public function InstalasiRawatJalan()
+    {
+        return view('LandingPage.Konten.LayananMedis.LayananInstalasi',[
+            'unit' => layanan::where('instalasi', 3)->get()
+        ]);
+    }
+    Public function InstalasiRawatInap()
+    {
+        return view('LandingPage.Konten.LayananMedis.LayananInstalasi',[
+            'unit' => layanan::where('instalasi', 2)->get()
+        ]);
+    }
+    Public function InstalasiCareUnit()
+    {
+        return view('LandingPage.Konten.LayananMedis.LayananInstalasi',[
+            'unit' => layanan::where('instalasi', 4)->get()
+        ]);
+    }
+    Public function InstalasiBedahSentral()
+    {
+        return view('LandingPage.Konten.LayananMedis.LayananInstalasi',[
+            'unit' => layanan::where('instalasi', 5)->get()
+        ]);
+    }
+    Public function InstalasiRadiologi()
+    {
+        return view('LandingPage.Konten.LayananMedis.LayananInstalasi',[
+            'unit' => layanan::where('instalasi', 6)->get()
+        ]);
+    }
+    Public function InstalasiLaboratorium()
+    {
+        return view('LandingPage.Konten.LayananMedis.LayananInstalasi',[
+            'unit' => layanan::where('instalasi', 7)->get()
+        ]);
+    }
+    Public function InstalasiFarmasi()
+    {
+        return view('LandingPage.Konten.LayananMedis.LayananInstalasi',[
+            'unit' => layanan::where('instalasi', 8)->get()
+        ]);
     }
 }

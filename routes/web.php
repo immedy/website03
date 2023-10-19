@@ -57,7 +57,16 @@ Route::controller(InstalasiController::class)->group(function(){
     route::get('/dashboard/instalasi/tambah','CreateInstalasi')->name('TambahInstalasi')->middleware('auth');
     route::get('/get-ruangan','getRuangan');
     route::post('/AddLayanan','Addlayanan')->name('AddLayanan');
-    route::get('/LayananMedis/{id}','LayananInstalasi');
+    route::get('/dashboard/instalasi/edit/{id}','EditLayanan')->name('EditLayanan');
+    route::get('/Instalasi/GawatDarurat','InstalasiGawatDarurat');
+    route::get('/Instalasi/Rawatjalan','InstalasiRawatJalan');
+    route::get('/Instalasi/RawatInap','InstalasiRawatInap');
+    route::get('/Instalasi/Rawatjalan','InstalasiRawatJalan');
+    route::get('/Instalasi/CareUnit','InstalasiCareUnit');
+    route::get('/Instalasi/BedahSentral','InstalasiBedahSentral');
+    route::get('/Instalasi/Radiologi','InstalasiRadiologi');
+    route::get('/Instalasi/Laboratorium','InstalasiLaboratorium');
+    route::get('/Instalasi/Farmasi','InstalasiFarmasi');
     
 });
 

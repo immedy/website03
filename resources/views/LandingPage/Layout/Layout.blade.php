@@ -60,7 +60,7 @@
                     <div class="row align-items-center">
                         <div class="col-xl-3 col-lg-2">
                             <div class="logo">
-                                <a href="index.html">
+                                <a href="/">
                                     <img src="{{ asset("LandingPage/img/logodara.png") }}" alt="">
                                 </a>
                             </div>
@@ -86,10 +86,20 @@
                                             </ul>
                                         </li>
                                         <li><a href="#">layanan Medis<i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">                                               
-                                                @foreach ($instalasi as $p )
+                                            <ul class="submenu">  
+                                                <li><a href="/Instalasi/GawatDarurat/">Instalasi Gawat Darurat</a></li> 
+                                                <li><a href="/Instalasi/Rawatjalan/">Instalasi Rawat Inap</a></li> 
+                                                <li><a href="">Instalasi Rawat Jalan</a></li> 
+                                                <li><a href="">Instalasi Laboratorium</a></li> 
+                                                <li><a href="">Instalasi Radiologi</a></li> 
+                                                <li><a href="">Instalasi Bedah Central</a></li>
+                                                <li><a href="">Instalasi Care Unit</a></li>
+                                                <li><a href="">Instalasi Farmasi</a></li>
+
+
+                                                {{-- @foreach ($instalasi as $p )
                                                 <li><a href="/LayananMedis/{{ $p->id }}">{{$p->instalasi}}</a></li>
-                                                @endforeach
+                                                @endforeach --}}
                                             </ul>
                                         </li>
                                         <li><a href="#">Jadwal Dokter</a></li>
@@ -110,12 +120,12 @@
         <div class="slider_active owl-carousel">
             <div class="container-fluid px-0 mb-0">
                 <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                    <div class="carousel-inner" data-bs-interval="300">
+                    <div class="carousel-inner" >
                         <div class="carousel-item active">
-                            <img class="w-100" src="{{ asset('LandingPage/img/banner/banner1.png') }}" alt="Image">
+                            <img class="w-100" src="{{ asset('LandingPage/img/banner/banner2.png') }}" alt="Image">
                         </div>
                         <div class="carousel-item">
-                            <img class="w-100" src="{{ asset('LandingPage/img/banner/banner2.png') }}" alt="Image">
+                            <img class="w-100" src="{{ asset('LandingPage/img/banner/banner1.png') }}" alt="Image">
                         </div>
                     </div>
                 </div>

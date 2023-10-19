@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ruangan;
 use App\Models\instalasi;
+use App\Models\referensi;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\JenisReferensi;
-use App\Models\referensi;
-use App\Models\ruangan;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class referensiController extends Controller
@@ -56,6 +57,7 @@ class referensiController extends Controller
             'instalasi' => 'required'
         ]);
         $ValidasiInstalasi['status'] = 1;
+        $ValidasiInstalasi['slug'] = Str::slug($request->instalasi, '');
         instalasi::create($ValidasiInstalasi);
         if($ValidasiInstalasi){
             Alert::Success('Sukses');

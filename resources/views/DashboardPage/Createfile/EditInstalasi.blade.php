@@ -3,30 +3,25 @@
     <div class="post d-flex flex-column-fluid" id="kt_post">
         <div id="kt_content_container" class="container-fluid">
             <div class="card">
-                <form action="{{route('AddLayanan')}}" method="post" enctype="multipart/form-data">
+                <form action="" method="post" enctype="multipart/form-data">
+                    @method('PUT')
                     @csrf
                     <div class="card-body">
                         <div class="mb-10">
                             <label for="exampleFormControlInput1" class="required form-label">Instalasi</label>
-                            <select type="text" class="form-control form-control-solid"  name="instalasi" id="instalasi">
-                                <option  selected value="" disabled></option>
-                                @foreach ($instalasi as $p )
-                                <option value="{{ $p->id }}">{{ $p->instalasi }}</option>
-                                @endforeach
-                            </select>
+                            <input type="text"class="form-control form-control-solid" value="{{$unit->JenisInstalasi->instalasi}}" disabled>
                         </div>
                         <div class="mb-10">
                             <label for="exampleFormControlInput1" class="required form-label">Unit</label>
-                            <select type="text" class="form-control form-control-solid"  name="ruangan" id="ruangan">
-                            </select>
+                            <input type="text" class="form-control form-control-solid" value="{{$unit->JenisRuangan->ruangan}}" disabled>
                         </div>
                         <div class="mb-10">
                             <label for="exampleFormControlInput1" class="form-label">Gambar</label>
                             <input type="file" class="form-control form-control-solid" placeholder="gambar" name="gambar" />
                         </div>
-                        <textarea name="konten" id="editor" cols="30" rows="1000" required placeholder="Tulis Artikel Di sini">
+                        <textarea  name="konten" id="editor" cols="30" rows="1000" required placeholder="Tulis Artikel Di sini">
                     <div id="editor" >
-                    
+                        {!! $unit->konten !!}
                     </div>
                 </textarea>
                     </div>
