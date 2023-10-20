@@ -20,11 +20,10 @@
                                         <span class="svg-icon svg-icon-3">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                 viewBox="0 0 24 24" fill="none">
-                                                <rect opacity="0.5" x="11.364" y="20.364" width="16"
-                                                    height="2" rx="1" transform="rotate(-90 11.364 20.364)"
+                                                <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2"
+                                                    rx="1" transform="rotate(-90 11.364 20.364)" fill="black" />
+                                                <rect x="4.36396" y="11.364" width="16" height="2" rx="1"
                                                     fill="black" />
-                                                <rect x="4.36396" y="11.364" width="16" height="2"
-                                                    rx="1" fill="black" />
                                             </svg>
                                         </span>
                                         <!--end::Svg Icon-->Tambah
@@ -138,25 +137,97 @@
                                 <h3 class="card-title align-items-start flex-column">
                                     <span class="card-label fw-bolder fs-3 mb-1">Dokuemen Rumah Sakit</span>
                                 </h3>
-                                <div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top"
-                                    data-bs-trigger="hover" title="Tambah">
-                                    <a href="{{ route('editor') }}" class="btn btn-sm btn-light btn-active-primary">
-                                        <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
-                                        <span class="svg-icon svg-icon-3">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none">
-                                                <rect opacity="0.5" x="11.364" y="20.364" width="16"
-                                                    height="2" rx="1" transform="rotate(-90 11.364 20.364)"
-                                                    fill="black" />
-                                                <rect x="4.36396" y="11.364" width="16" height="2"
-                                                    rx="1" fill="black" />
-                                            </svg>
-                                        </span>
-                                        <!--end::Svg Icon-->Tambah
-                                    </a>
-                                </div>
+                                <form action="">
+                                    <div class="card-toolbar">
+                                        <div>
+                                            <input type="text" name="dokumen" value=""
+                                                class="form-control sm me-1" placeholder="Cari Dokumen" />
+                                        </div>
+                                        <div>
+                                            <button type="submit"
+                                                class="btn btn-icon btn-outline-warning btn-active-light-info border border-success btn-sm me-1"
+                                                data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                                title="Cari Dokumen"><span class="indicator-label">
+                                                    <span class="svg-icon svg-icon-2">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                            height="16" fill="currentColor" class="bi bi-search"
+                                                            viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                                        </svg>
+                                                    </span>
+                                                </span>
+                                            </button>
+                                        </div>
+
+                                        <div class="card-toolbar">
+                                            <div class="d-flex justify-content-end flex-shrink-0">
+                                                <button type="button"
+                                                    class=" btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1 border border-info"
+                                                    data-bs-toggle="modal" data-bs-target="#modalAddDokumen">
+                                                    <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
+                                                    <span class="svg-icon svg-icon-2">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                            height="16" fill="currentColor" class="bi bi-folder-plus"
+                                                            viewBox="0 0 16 16">
+                                                            <path
+                                                                d="m.5 3 .04.87a1.99 1.99 0 0 0-.342 1.311l.637 7A2 2 0 0 0 2.826 14H9v-1H2.826a1 1 0 0 1-.995-.91l-.637-7A1 1 0 0 1 2.19 4h11.62a1 1 0 0 1 .996 1.09L14.54 8h1.005l.256-2.819A2 2 0 0 0 13.81 3H9.828a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 6.172 1H2.5a2 2 0 0 0-2 2Zm5.672-1a1 1 0 0 1 .707.293L7.586 3H2.19c-.24 0-.47.042-.683.12L1.5 2.98a1 1 0 0 1 1-.98h3.672Z" />
+                                                            <path
+                                                                d="M13.5 9a.5.5 0 0 1 .5.5V11h1.5a.5.5 0 1 1 0 1H14v1.5a.5.5 0 1 1-1 0V12h-1.5a.5.5 0 0 1 0-1H13V9.5a.5.5 0 0 1 .5-.5Z" />
+                                                        </svg>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                            {{-- @endif --}}
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                             <!--end::Header-->
+                            {{-- Modal --}}
+                            <div class="modal fade" tabindex="-1" id="modalAddDokumen">
+                                <div class="modal-dialog border border-danger">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Tambah Dokumen</h5>
+                                        </div>
+                                        <form action="{{ route('AddDokumen') }}" method="post" id="kt_docs_formvalidation_text">
+                                            @csrf
+                                            <div class="modal-body">
+                                                <div class="fv-row mb-10">
+                                                    <!--begin::Input-->
+                                                    <label class="text-dark fw-bolder text-hover-primary fs-6">Judul
+                                                        Dokumen</label>
+                                                    <input type="text" name="dokumen"
+                                                        class="form-control form-control-solid mb-3 mb-lg-0"
+                                                        placeholder="" value="" required />
+                                                    <!--end::Input-->
+                                                </div>
+                                                <div class="fv-row mb-10">
+                                                    <!--begin::Input-->
+                                                    <label class="text-dark fw-bolder text-hover-primary fs-6">link</label>
+                                                    <input type="text" name="link"
+                                                        class="form-control form-control-solid mb-3 mb-lg-0"
+                                                        placeholder="" value="" required />
+                                                    <!--end::Input-->
+                                                </div>
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-light"
+                                                    data-bs-dismiss="modal">Keluar</button>
+                                                <button type="submit" class="btn btn-primary"><span
+                                                        class="indicator-label">
+                                                        Simpan
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- End Modal  --}}
+
                             <!--begin::Body-->
                             <div class="card-body py-3">
                                 <!--begin::Table container-->
@@ -167,7 +238,7 @@
                                         <thead>
                                             <tr class="fw-bolder text-muted">
                                                 <th class="min-w-5px">No</th>
-                                                <th class="min-w-150px">Judul</th>
+                                                <th class="min-w-150px">Dokumen</th>
 
                                                 <th class="min-w-100px text-end">Actions</th>
                                             </tr>
@@ -175,7 +246,7 @@
                                         <!--end::Table head-->
                                         <!--begin::Table body-->
                                         <tbody>
-                                            @foreach ($Menu as $p)
+                                            @foreach ($dokumen as $p)
                                                 <tr>
                                                     <td>
                                                         {{ $loop->iteration }}
@@ -184,13 +255,13 @@
                                                         <div class="d-flex align-items-center">
                                                             <div class="d-flex justify-content-start flex-column">
                                                                 <a href="#"
-                                                                    class="text-dark fw-bolder text-hover-primary fs-6">{{ $p->judul }}</a>
+                                                                    class="text-dark fw-bolder text-hover-primary fs-6">{{ $p->dokumen }}</a>
                                                             </div>
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="d-flex justify-content-end flex-shrink-0">
-                                                            <a href="{{ route('tampil', $p->id) }}"
+                                                            <a href="{{ $p->link }}" target="_blank"
                                                                 class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1 border border-primary"
                                                                 data-bs-toggle="tooltip" data-bs-placement="Top"
                                                                 title="Edit">
@@ -209,7 +280,7 @@
                                                                 </span>
                                                                 <!--end::Svg Icon-->
                                                             </a>
-                                                            <form action="{{ route('hapus', $p->id) }}" method="post">
+                                                            <form action="" method="post">
                                                                 @csrf
                                                                 @method('delete')
                                                                 <button
@@ -272,11 +343,11 @@
                                         <span class="svg-icon svg-icon-3">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                 viewBox="0 0 24 24" fill="none">
-                                                <rect opacity="0.5" x="11.364" y="20.364" width="16"
-                                                    height="2" rx="1" transform="rotate(-90 11.364 20.364)"
+                                                <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2"
+                                                    rx="1" transform="rotate(-90 11.364 20.364)"
                                                     fill="black" />
-                                                <rect x="4.36396" y="11.364" width="16" height="2"
-                                                    rx="1" fill="black" />
+                                                <rect x="4.36396" y="11.364" width="16" height="2" rx="1"
+                                                    fill="black" />
                                             </svg>
                                         </span>
                                         <!--end::Svg Icon-->Laporan

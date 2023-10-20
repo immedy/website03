@@ -35,6 +35,7 @@ Route::controller(MenuUtamaController::class)->group(function(){
     route::post('/TambahMenu','TambahEdit')->name('TambahMenu')->middleware('auth');
     route::delete('/hapus/{id}','Hapus')->name('hapus')->middleware('auth');
     route::get('/tampil/{id}','show')->name('tampil')->middleware('auth');
+    Route::post('/AddDokumen','AddDokumen')->name('AddDokumen')->middleware('auth');
 });
 Route::controller(ProfilController::class)->group(function(){
     route::get('/profil/sejarah','sejarah');
@@ -107,3 +108,4 @@ Route::controller(UserController::class)->group(function(){
 Route::controller(LaporanKerusakanController::class)->group(function(){
     route::post('/AddlaporanKerusakan','AddLaporanKerusakan')->name('AddLaporanKerusakan')->middleware('auth');
 });
+

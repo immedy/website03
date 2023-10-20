@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\berita;
 use App\Models\dokter;
+use App\Models\dokumen;
 use App\Models\instalasi;
 use App\Models\laporankerusakan;
 use App\Models\MenuUtama;
@@ -28,8 +29,22 @@ class MenuUtamaController extends Controller
         return view('DashboardPage.Index', [
             'Menu' => MenuUtama::all(),
             'LaporanPengirim' => laporankerusakan::all(),
-            'ruangan' => ruangan::where('penerima_order',1)->get()
+            'ruangan' => ruangan::where('penerima_order',1)->get(),
+            'dokumen' => dokumen::latest()->get()
         ]);
+    }
+    public function AddDokumen(Request $request)
+    {
+        $ValidasiDokumen = $request->validate([
+            'dokumen' => 'required',
+            'link' => 'required'
+        ]);
+        dokumen::updateOrInsert($ValidasiDokumen);
+        if($ValidasiDokumen){
+            Alert::success('Berhasil');
+        }
+        return back();
+
     }
     public function editor()
     {
