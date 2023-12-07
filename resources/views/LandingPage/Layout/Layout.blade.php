@@ -47,7 +47,7 @@
                         <div class="col-xl-6 col-md-6">
                             <div class="short_contact_list">
                                 <ul>
-                                    <li><a href="#"> <i class="fa fa-hospital-o"></i> IGD : 0812-5494-1221 </a></li>
+                                    <li><a href="#"> <i class="fa fa-hospital-o"></i> IGD : - </a></li>
                                     <li><a href="#"> <i class="fa fa-phone"></i>Informasi : 0813-4730-2554</a></li>
                                 </ul>
                             </div>
