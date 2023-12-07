@@ -95,5 +95,9 @@ class MenuUtamaController extends Controller
         ]);
         
     }
+    public function Kesalahan()
+    {
+        return view('LandingPage.Erorr.Eror');
+    }
     
 }

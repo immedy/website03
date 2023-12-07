@@ -12,8 +12,7 @@
                 <div class="blog_details mt-0">
                   <h1> {{ $p->judul }}</h1>                                       
                    <ul class="blog-info-link">
-                      <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
-                      <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
+                      <li><a href="#"><i class="fa fa-user"></i> admiin</a></li>
                    </ul>
                    <div style="text-align: justify">
                    {!! $p->konten!!}

@@ -30,6 +30,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 Route::controller(MenuUtamaController::class)->group(function(){
     route::get('/','HalamanUtama');
+    route::get('/Kesalahan','Kesalahan');
     route::get('/dashboard','index')->middleware('auth');
     route::get('/dashboard/editor','editor')->name('editor')->middleware('auth');
     route::post('/TambahMenu','TambahEdit')->name('TambahMenu')->middleware('auth');
@@ -46,6 +47,7 @@ Route::controller(ProfilController::class)->group(function(){
 Route::controller(InformasiController::class)->group(function(){
     route::get('/informasi/berita','BeritaLandingPage');
     route::get('/informasi/berita/{id}','BeritaLandingPageDetail');
+    route::get('/informasi/InformasiPublik','InformasiPublic');
     route::get('/dashboard/berita','index')->middleware('auth');
     route::get('/dashboard/berita/create','beritacreate')->middleware('auth');
     route::get('/dashboard/berita/edit/{id}','detailberita')->name('detailberita')->middleware('auth');

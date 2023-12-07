@@ -80,6 +80,9 @@ class InformasiController extends Controller
         }
         return back();
     }
-    
+    public function InformasiPublic()
+    {
+        return view('LandingPage.Konten.Informasi.InformasiPublik');
+    }
     
 }
