@@ -9,3 +9,10 @@ $("#Tanggal_Kerusakan").flatpickr({
   $("#surat_keluar").flatpickr({
     maxDate: "today"
   });
+
+  $("#TanggalJadwalDokter").flatpickr({
+    altInput: true,
+    altFormat: "F j, Y",
+    dateFormat: "Y-m-d",
+    mode: "range"
+});

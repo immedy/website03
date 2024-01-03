@@ -45,3 +45,16 @@ $(document).ready(function() {
     });
 
 });
+
+//JadwalDokter
+$(document).ready(function() {
+    $('table').on('click', '#JadwalDokter', function() {
+        var dokterURL = $(this).data('url');
+        $.get(dokterURL, function(data) {
+            $('#JadwalDokterModal').modal('show');
+            $('#dokter-nama').text(data.nama);
+            $('#dokter-id').val(data.id)
+        })
+    });
+
+});

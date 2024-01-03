@@ -12,7 +12,7 @@ use App\Models\ruangan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
-
+use Spatie\FlareClient\View;
 
 class MenuUtamaController extends Controller
 {
@@ -98,6 +98,17 @@ class MenuUtamaController extends Controller
     public function Kesalahan()
     {
         return view('LandingPage.Erorr.Eror');
+    }
+
+    public function JadwalDokter()
+    {
+        return view('LandingPage.Konten.JadwalDokter.JadwalDokter');
+    }
+
+    public function InputJadwalDokter($id)
+    {
+        $JadwalDokter = dokter::find($id);
+        return response()->json($JadwalDokter);
     }
     
 }

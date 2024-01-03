@@ -98,7 +98,7 @@
                                                 <li><a href="/Instalasi/Farmasi">Instalasi Farmasi</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="/Kesalahan">Jadwal Dokter</a></li>
+                                        <li><a href="/JadwalDokter">Jadwal Dokter</a></li>
                                     </ul>
                                 </nav>
                             </div>

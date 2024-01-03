@@ -13,7 +13,8 @@ class DokterController extends Controller
     {
         return view('DashboardPage.Dokter.dokter',[
             'JenisDokter' => referensi::where('jenisreferensi',4)->get(),
-            'dokter' => dokter::all()
+            'dokter' => dokter::all(),
+            'jadwalDokter' => referensi::where('jenisreferensi',9)->get()
         ]);
     }
     public function addDokter(Request $request)
@@ -31,5 +32,10 @@ class DokterController extends Controller
             Alert::Success('Dokter Berhasil Terinput');
         }
         return back();
+    }
+
+    public function addJadwalDokter (Request $request)
+    {
+        dd($request);
     }
 }

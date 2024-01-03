@@ -65,8 +65,8 @@
                                             </td>
                                             <td>
                                                 <div class="d-flex justify-content-end flex-shrink-0">
-                                                    <a href="#"
-                                                        class="btn btn-icon btn-bg-light btn-active-color-info btn-sm me-1 border border-info">
+                                                    <a href="javascript:void(0)" data-url="{{route('InputJadwalDokter', $p->id)}}" id="JadwalDokter"
+                                                        class="btn btn-icon btn-bg-light btn-active-color-info btn-sm me-1 border border-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Input Jadwal Dokter">
                                                         <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
                                                         <span class="svg-icon svg-icon-3">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="16"
@@ -137,6 +137,86 @@
                         </div>
                     </div>
 
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Keluar</button>
+                        <button type="submit" class="btn btn-primary"><span class="indicator-label">
+                                Simpan
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade " tabindex="-1" id="JadwalDokterModal">
+        <div class="modal-dialog border border-danger">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="dokter-nama"></h5>
+                </div>
+                <form action="{{route('addJadwalDokter')}}" method="post" >
+                    @csrf
+                    <div class="modal-body">
+                        <div class="fv-row ">
+                            
+                            <input type="text" name="dokter" id="dokter-id" class="form-control form-control-solid mb-3 mb-lg-0" hidden />
+                        </div>
+                        <div class="fv-row ">
+                            <label class="text-dark fw-bolder text-hover-primary fs-6">Tanggal</label>
+                            <input type="text" name="tanggal" id="TanggalJadwalDokter" class="form-control form-control-solid mb-3 mb-lg-0"/>                            
+                        </div>
+                        <div class="fv-row ">
+                            <label class="text-dark fw-bolder text-hover-primary fs-6">Senin</label>
+                            <select name="senin" class="form-select form-select-solid"
+                                 required>
+                                <option></option>
+                                @foreach ($jadwalDokter as $p )
+                                <option value="{{$p->id}}">{{$p->deskripsi}}</option>
+                                @endforeach                                    
+                            </select>
+                        </div>
+                        <div class="fv-row ">
+                            <label class="text-dark fw-bolder text-hover-primary fs-6">Selasa</label>
+                            <select name="selasa" class="form-select form-select-solid"
+                                 required>
+                                <option></option>
+                                @foreach ($jadwalDokter as $p )
+                                <option value="{{$p->id}}">{{$p->deskripsi}}</option>
+                                @endforeach                                    
+                            </select>
+                        </div> 
+                        <div class="fv-row ">
+                            <label class="text-dark fw-bolder text-hover-primary fs-6">Rabu</label>
+                            <select name="rabu" class="form-select form-select-solid"
+                                 required>
+                                <option></option>
+                                @foreach ($jadwalDokter as $p )
+                                <option value="{{$p->id}}">{{$p->deskripsi}}</option>
+                                @endforeach                                    
+                            </select>
+                        </div>
+                        <div class="fv-row ">
+                            <label class="text-dark fw-bolder text-hover-primary fs-6">Kamis</label>
+                            <select name="kamis" class="form-select form-select-solid"
+                                 required>
+                                <option></option>
+                                @foreach ($jadwalDokter as $p )
+                                <option value="{{$p->id}}">{{$p->deskripsi}}</option>
+                                @endforeach                                    
+                            </select>
+                        </div>                                                  
+                        <div class="fv-row ">
+                            <label class="text-dark fw-bolder text-hover-primary fs-6">Jumat</label>
+                            <select name="jumat" class="form-select form-select-solid"
+                                 required>
+                                <option></option>
+                                @foreach ($jadwalDokter as $p )
+                                <option value="{{$p->id}}">{{$p->deskripsi}}</option>
+                                @endforeach                                    
+                            </select>
+                        </div> 
+                    </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light" data-bs-dismiss="modal">Keluar</button>
                         <button type="submit" class="btn btn-primary"><span class="indicator-label">

@@ -30,13 +30,15 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 Route::controller(MenuUtamaController::class)->group(function(){
     route::get('/','HalamanUtama');
+    route::get('/JadwalDokter','JadwalDokter');
     route::get('/Kesalahan','Kesalahan');
     route::get('/dashboard','index')->middleware('auth');
     route::get('/dashboard/editor','editor')->name('editor')->middleware('auth');
     route::post('/TambahMenu','TambahEdit')->name('TambahMenu')->middleware('auth');
     route::delete('/hapus/{id}','Hapus')->name('hapus')->middleware('auth');
     route::get('/tampil/{id}','show')->name('tampil')->middleware('auth');
-    Route::post('/AddDokumen','AddDokumen')->name('AddDokumen')->middleware('auth');
+    route::post('/AddDokumen','AddDokumen')->name('AddDokumen')->middleware('auth');
+    route::get('/InputJadwalDokter/{id}','InputJadwalDokter')->middleware('auth')->name('InputJadwalDokter');
 });
 Route::controller(ProfilController::class)->group(function(){
     route::get('/profil/sejarah','sejarah');
@@ -93,6 +95,7 @@ Route::controller(referensiController::class)->group(function(){
 Route::controller(DokterController::class)->group(function(){
     route::get('/dashboard/dokter','index')->middleware('auth');
     route::post('/addDokter','addDokter')->name('addDokter')->middleware('auth');
+    route::post('addJadwalDokter','addJadwalDokter')->name('addJadwalDokter')->middleware('auth');
 });
 
 Route::controller(UserController::class)->group(function(){
