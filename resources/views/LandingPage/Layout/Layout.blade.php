@@ -111,25 +111,7 @@
             </div>
         </div>
     </header>
-    <div class="slider_area">
-        <div class="slider_active owl-carousel">
-            <div class="container-fluid px-0 mb-0">
-                <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                    <div class="carousel-inner" >
-                        <div class="carousel-item active">
-                            <img class="w-100" src="{{ asset('LandingPage/img/banner/web.jpg') }}" alt="Image">
-                        </div>                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script>
-        // Mengatur carousel untuk berjalan otomatis setiap 3 detik
-        setInterval(function() {
-            $('#header-carousel').carousel('next');
-        }, 3000);
-    </script>
+    
     
     
     @yield('KONTEN')

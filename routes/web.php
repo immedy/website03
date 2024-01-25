@@ -1,19 +1,20 @@
 <?php
 
 use App\Models\MenuUtama;
+use App\Models\laporankerusakan;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\UserController;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DokterController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\InstalasiController;
-use App\Http\Controllers\KritikSaranController;
-use App\Http\Controllers\LaporanKerusakanController;
 use App\Http\Controllers\MenuUtamaController;
 use App\Http\Controllers\referensiController;
-use App\Http\Controllers\UserController;
-use App\Models\laporankerusakan;
-use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Controllers\KritikSaranController;
+use App\Http\Controllers\LaporanKerusakanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,7 @@ Route::controller(MenuUtamaController::class)->group(function(){
     route::get('/tampil/{id}','show')->name('tampil')->middleware('auth');
     route::post('/AddDokumen','AddDokumen')->name('AddDokumen')->middleware('auth');
     route::get('/InputJadwalDokter/{id}','InputJadwalDokter')->middleware('auth')->name('InputJadwalDokter');
+    route::post('/InputCrousel','AddCrousel')->middleware('auth')->name('AddCrousel');
 });
 Route::controller(ProfilController::class)->group(function(){
     route::get('/profil/sejarah','sejarah');
@@ -114,3 +116,6 @@ Route::controller(LaporanKerusakanController::class)->group(function(){
     route::post('/AddlaporanKerusakan','AddLaporanKerusakan')->name('AddLaporanKerusakan')->middleware('auth');
 });
 
+Route::get('/foo', function () {
+    Artisan::call('storage:link');
+});

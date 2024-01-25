@@ -1,9 +1,33 @@
 @extends('LandingPage.Layout.Layout')
 @section('KONTEN')
-    <!-- testmonial_area_start -->
-
-    <!-- testmonial_area_end -->
-
+ <!-- slider_area_start -->
+ <div class="slider_area">
+    <div class="slider_active owl-carousel">
+        <div class="single_slider  d-flex align-items-center" style="background-image: url({{asset('LandingPage/img/banner/web.jpg')}})">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        @foreach ($carosel as $p )
+        <div class="single_slider d-flex align-items-center " style="background-image: url({{asset('storage/'. $p->carusel)}})">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="slider_text ">                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        @endforeach
+               
+    </div>
+</div>
+<!-- slider_area_end -->
     <!-- welcome_docmed_area_start -->
     <div class="welcome_docmed_area">
         <div class="container">

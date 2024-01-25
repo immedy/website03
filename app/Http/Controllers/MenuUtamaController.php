@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\berita;
+use App\Models\carousel;
 use App\Models\dokter;
 use App\Models\dokumen;
 use App\Models\instalasi;
@@ -21,7 +22,8 @@ class MenuUtamaController extends Controller
         return view('LandingPage.Konten.index',[
             'berita' => berita::latest()->paginate(3),
             'dokter' => dokter::all(),
-            'instalasi' => instalasi::where('status',1)->get()
+            'instalasi' => instalasi::where('status',1)->get(),
+            'carosel' => carousel::all()
         ]);
     }
     public function index()
@@ -30,7 +32,8 @@ class MenuUtamaController extends Controller
             'Menu' => MenuUtama::all(),
             'LaporanPengirim' => laporankerusakan::all(),
             'ruangan' => ruangan::where('penerima_order',1)->get(),
-            'dokumen' => dokumen::latest()->get()
+            'dokumen' => dokumen::latest()->get(),
+            'carousel' => carousel::latest()->get(),
         ]);
     }
     public function AddDokumen(Request $request)
@@ -110,5 +113,19 @@ class MenuUtamaController extends Controller
         $JadwalDokter = dokter::find($id);
         return response()->json($JadwalDokter);
     }
+
+    public function AddCrousel(Request $request)
+    {
+        $ValidasiCarosel = $request->validate([
+            "carusel" => 'required|mimes:png,jpg|max:1028'
+        ]);
+        if ($request->hasFile('carusel')){
+            $ValidasiCarosel['carusel']= $request->file('carusel')->store('GambarCarusel');
+        }
+        $ValidasiCarosel['status'] = 1;
+        carousel::create($ValidasiCarosel);
+        return back();
+    }
+
     
 }
