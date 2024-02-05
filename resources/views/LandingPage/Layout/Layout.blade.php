@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="{{ asset("LandingPage/css/animate.css") }}">
     <link rel="stylesheet" href="{{ asset("LandingPage/css/slicknav.css") }}">
     <link rel="stylesheet" href="{{ asset("LandingPage/css/style.css") }}">
-    {{-- <link rel="stylesheet" href="{{ asset('LandingPage/css/responsive.css') }}"> --}}
+    <link rel="stylesheet" href="{{ asset('LandingPage/css/responsive.css') }}">
 </head>
 <body>
     @include('sweetalert::alert')

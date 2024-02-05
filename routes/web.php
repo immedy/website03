@@ -27,6 +27,11 @@ use App\Http\Controllers\LaporanKerusakanController;
 |
 */
 
+Route::get('/storage-link', function(){
+    $targetFolder = base_path(). '/storage/app/public';
+    $linkFolder = $_SERVER['DOCUMENT_ROOT'].'/storage';
+    symlink($targetFolder, $linkFolder);
+});
 
 
 Route::controller(MenuUtamaController::class)->group(function(){
