@@ -124,6 +124,9 @@ class MenuUtamaController extends Controller
         }
         $ValidasiCarosel['status'] = 1;
         carousel::create($ValidasiCarosel);
+        if($ValidasiCarosel){
+            Alert::success('Berhasil');
+        }
         return back();
     }
 

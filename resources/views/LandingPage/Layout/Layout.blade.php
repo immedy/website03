@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{{ asset("LandingPage/css/bootstrap.min.css") }}">
     <link rel="stylesheet" href="{{ asset("LandingPage/css/owl.carousel.min.css") }}">
     <link rel="stylesheet" href="{{ asset("LandingPage/css/magnific-popup.css") }}">
-    <link rel="stylesheet" href="{{ asset("LandingPage/css/font-awesome.min.css") }}">
+    <link rel="stylesheet" href="{{ asset("LandingPage/css/font-awesome.min.css") }}"> 
     <link rel="stylesheet" href="{{ asset("LandingPage/css/themify-icons.css") }}">
     <link rel="stylesheet" href="{{ asset("LandingPage/css/nice-select.css") }}">
     <link rel="stylesheet" href="{{ asset("LandingPage/css/flaticon.css") }}">
