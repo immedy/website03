@@ -504,7 +504,7 @@
                             <!--begin::Header-->
                             <div class="card-header border-0 pt-5">
                                 <h3 class="card-title align-items-start flex-column">
-                                    <span class="card-label fw-bolder fs-3 mb-1">Laporan Kerusakan</span>
+                                    <span class="card-label fw-bolder fs-3 mb-1">Carosel</span>
                                 </h3>
                                 <div class="card-toolbar">
                                     <a href="#" class="btn btn-sm btn-light btn-active-primary"
@@ -520,7 +520,7 @@
                                                     fill="black" />
                                             </svg>
                                         </span>
-                                        <!--end::Svg Icon-->Laporan
+                                        <!--end::Svg Icon-->Tambah
                                     </a>
                                 </div>
                             </div>
@@ -529,61 +529,48 @@
                             <div class="card-body py-3">
                                 <!--begin::Table container-->
                                 <div class="table-responsive">
-                                    <!--begin::Table-->
-                                    <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
-                                        <!--begin::Table head-->
-                                        <thead>
-                                            <tr class="fw-bolder text-muted">
-                                                <th class="min-w-10px">No Registrasi</th>
-                                                <th class="min-w-150px">Keterangan/Alat/Spesifikasi</th>
-                                                <th class="min-w-120px">Waktu Pelaporan</th>
-                                                <th class="min-w-140px">Waktu Respon</th>
-                                                <th class="min-w-90px">status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($LaporanPengirim as $p)
-                                                <tr>
-                                                    <td>
-                                                        <div class="d-flex align-items-center">
-                                                            {{ $p->notiket }}
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <a href="#" class="text-primary fw-bolder  d-block fs-6">-
-                                                            {{ $p->alat }}</a>
-                                                        <span class="text-warning fw-bolder  d-block fs-6">-
-                                                            {{ $p->spesifikasi }}</span>
-                                                        <span class="text-danger fw-bolder  d-block fs-6">-
-                                                            {{ $p->keterangan }}</span>
-                                                    </td>
-                                                    <td>
-                                                        <span
-                                                            class="text-danger fw-bolder  d-block fs-6">{{ $p->waktu_pelaporan }}</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-primary fw-bolder  d-block fs-6">
-                                                            {{-- @if (!empty($p->Respon_Time))
-                                                            {{ $p->Respon_Time }}
-                                                        @endif --}}
-                                                        </span>
-                                                    </td>
-                                                    <td>
-                                                        @if ($p->status == 1)
-                                                            <span
-                                                                class="text-success fw-bolder  d-block fs-6">diterima</span>
-                                                            --}}
-                                                        @else
-                                                            <span class="text-warning fw-bolder  d-block fs-6">belum
-                                                                diterima</span>
-                                                        @endif
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                        </tbody>
-                                        <!--end::Table body-->
-                                    </table>
-                                    <!--end::Table-->
+                                    <!--begin::Section-->
+										<div class="mb-17">											
+											<!--begin::Separator-->
+											<div class="separator separator-dashed mb-9"></div>
+											<!--end::Separator-->
+											<!--begin::Row-->
+											<div class="row g-10">
+												<!--begin::Col-->
+												<div class="col-md-4">
+													<!--begin::Hot sales post-->
+													<div class="card-xl-stretch me-md-6">
+														<!--begin::Overlay-->
+														<a class="d-block overlay" data-fslightbox="lightbox-hot-sales" href="assets/media/stock/600x400/img-23.jpg">
+															<!--begin::Image-->
+															<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px" style="background-image:url('assets/media/stock/600x400/img-23.jpg')"></div>
+															<!--end::Image-->
+															<!--begin::Action-->
+															<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+																<i class="bi bi-eye-fill fs-2x text-white"></i>
+															</div>
+															<!--end::Action-->
+														</a>
+														<!--end::Overlay-->
+														<!--begin::Body-->
+														<div class="mt-5">															
+															<!--begin::Text-->
+															<div class="fs-6 fw-bolder mt-5 d-flex flex-stack">																
+																<!--begin::Action-->
+																<a href="#" class="btn btn-primary">Purchase</a>
+																<!--end::Action-->
+															</div>
+															<!--end::Text-->
+														</div>
+														<!--end::Body-->
+													</div>
+													<!--end::Hot sales post-->
+												</div>
+												<!--end::Col-->												
+											</div>
+											<!--end::Row-->
+										</div>
+										<!--end::Section-->
                                 </div>
                                 <!--end::Table container-->
                             </div>
