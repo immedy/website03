@@ -120,7 +120,3 @@ Route::controller(UserController::class)->group(function(){
 Route::controller(LaporanKerusakanController::class)->group(function(){
     route::post('/AddlaporanKerusakan','AddLaporanKerusakan')->name('AddLaporanKerusakan')->middleware('auth');
 });
-
-Route::get('/foo', function () {
-    Artisan::call('storage:link');
-});

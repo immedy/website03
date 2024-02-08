@@ -105,7 +105,7 @@ class MenuUtamaController extends Controller
 
     public function JadwalDokter()
     {
-        return view('LandingPage.Konten.JadwalDokter.JadwalDokter');
+        return view('LandingPage.Erorr.Eror');
     }
 
     public function InputJadwalDokter($id)
