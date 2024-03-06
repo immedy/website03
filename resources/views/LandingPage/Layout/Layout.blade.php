@@ -76,6 +76,7 @@
                                                 <li><a href="/profil/sejarah">Sejarah</a></li>
                                                 <li><a href="/profil/strukturorganisasi">Strukrur Organisasi</a></li>
                                                 <li><a href="/Kesalahan">Prestasi</a></li>
+                                                <li><a href="/profil/direktur">Direktur</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="#" class="{{ Request::is('informasi/*')?'active' : '' }}">Informasi<i class="ti-angle-down"></i></a>

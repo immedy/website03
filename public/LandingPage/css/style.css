@@ -285,7 +285,7 @@ h3 {
   /* IE6-9 */
   top: 0;
   left: 0;
-  width: 100%;
+  width: 130%;
   height: 100%;
   z-index: -1;
   opacity: 1;
@@ -293,7 +293,7 @@ h3 {
 
 /* line 212, C:/Users/SPN Graphics/Desktop/CL September/210 Medical/HTML/scss/theme-default.scss */
 .section-padding {
-  padding-top: 120px;
+  padding-top: 0px;
   padding-bottom: 120px;
 }
 
@@ -1061,7 +1061,7 @@ h3 {
   left: 0;
   top: 160%;
   background: #fff;
-  width: 200px;
+  width: max-content    ;
   z-index: 2;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.02);
   opacity: 0;
@@ -2473,10 +2473,9 @@ h3 {
 
 /* line 10, C:/Users/SPN Graphics/Desktop/CL September/210 Medical/HTML/scss/_bradcam.scss */
 .bradcam_area {
-  padding: 170px;
+  padding: 70px;
   background-size: cover;
-  background-position: center center;
-  padding: 148px 0px;
+  background-position: center center;  
   background-repeat: no-repeat;
 }
 
@@ -2904,7 +2903,7 @@ h3 {
 
 /* line 1, C:/Users/SPN Graphics/Desktop/CL September/210 Medical/HTML/scss/_experts.scss */
 .expert_doctors_area {
-  padding-top: 120px;
+  padding-top: 30px;
   padding-bottom: 120px;
 }
 

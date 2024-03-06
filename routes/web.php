@@ -51,6 +51,7 @@ Route::controller(ProfilController::class)->group(function(){
     route::get('/profil/sejarah','sejarah');
     route::get('/profil/visimisimottonilai','visimisi');
     route::get('/profil/strukturorganisasi','organisasi');
+    route::get('/profil/direktur','direktur');
 
 });
 Route::controller(InformasiController::class)->group(function(){
