@@ -129,6 +129,9 @@ class MenuUtamaController extends Controller
         }
         return back();
     }
-
+    public function informasiPPID()
+    {
+        return view('LandingPage.Konten.Informasi.ppid');
+    }
     
 }

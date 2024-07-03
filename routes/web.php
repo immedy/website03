@@ -46,6 +46,7 @@ Route::controller(MenuUtamaController::class)->group(function(){
     route::post('/AddDokumen','AddDokumen')->name('AddDokumen')->middleware('auth');
     route::get('/InputJadwalDokter/{id}','InputJadwalDokter')->middleware('auth')->name('InputJadwalDokter');
     route::post('/InputCrousel','AddCrousel')->middleware('auth')->name('AddCrousel');
+    route::get('/Infrmasi/PPID','informasiPPID');
 });
 Route::controller(ProfilController::class)->group(function(){
     route::get('/profil/sejarah','sejarah');
