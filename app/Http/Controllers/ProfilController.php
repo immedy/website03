@@ -29,4 +29,8 @@ class ProfilController extends Controller
             'instalasi' => instalasi::all()
         ]);
     }
+    public function direktur()
+    {
+        return view('LandingPage.Konten.Profil.direktur');
+    }
 }
