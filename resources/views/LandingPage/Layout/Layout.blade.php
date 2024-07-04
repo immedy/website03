@@ -82,7 +82,6 @@
                                         <li><a href="#" class="{{ Request::is('informasi/*')?'active' : '' }}">Informasi<i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="/informasi/berita">Berita</a></li>
-                                                <li><a href="/Infrmasi/PPID">PPID</a></li>
                                                 <li><a href="/informasi/InformasiPublik">Informasi Publik</a></li>
                                                 <li><a href="/Kesalahan">Capaian Indikator</a></li>
                                                 <li><a href="/Kesalahan">Tata Tertib Pengunjung</a></li>                                                
@@ -100,7 +99,16 @@
                                                 <li><a href="/Instalasi/Farmasi">Instalasi Farmasi</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="/JadwalDokter">Jadwal Dokter</a></li>
+                                        <li><a href="#" class="{{ Request::is('PPID/*')?'active' : '' }}">PPDI<i class="ti-angle-down"></i></a>
+                                            <ul class="submenu">  
+                                                <li><a href="/PPID/InformasiPublik">Informasi Publik</a></li> 
+                                                <li><a href="/PPID/informasiBerkala">Informasi Berkala</a></li> 
+                                                <li><a href="/PPID/informasiSetiapSaat">Informasi Setiap Saat</a></li> 
+                                                <li><a href="/PPID/informasiSertaMerta">Informasi Serta Merta</a></li> 
+                                                <li><a href="/PPID/informasiDiKecualikan">Informasi Dikecualiakan</a></li> 
+                                                <li><a href="">Form Permohonan Informasi</a></li>
+                                            </ul>
+                                        </li>
                                     </ul>
                                 </nav>
                             </div>

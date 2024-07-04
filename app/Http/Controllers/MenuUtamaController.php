@@ -129,9 +129,24 @@ class MenuUtamaController extends Controller
         }
         return back();
     }
-    public function informasiPPID()
+    public function informasiPublik()
     {
-        return view('LandingPage.Konten.Informasi.ppid');
+        return view('LandingPage.Konten.PPID.InformasiPublik');
     }
-    
+    public function informasiBerkala()
+    {
+        return view('LandingPage.Konten.PPID.InformasiBerkala');
+    }
+    public function informasiSertaMerta()
+    {
+        return view('LandingPage.Konten.PPID.InformasiSertaMerta');
+    }
+    public function informasiDiKecualikan()
+    {
+        return view('LandingPage.Konten.PPID.InformasiDiKecualikan');
+    }
+    public function informasiSetiapSaat()
+    {
+        return view('LandingPage.Konten.PPID.InformasiSetipaSaat');
+    }
 }

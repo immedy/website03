@@ -46,13 +46,17 @@ Route::controller(MenuUtamaController::class)->group(function(){
     route::post('/AddDokumen','AddDokumen')->name('AddDokumen')->middleware('auth');
     route::get('/InputJadwalDokter/{id}','InputJadwalDokter')->middleware('auth')->name('InputJadwalDokter');
     route::post('/InputCrousel','AddCrousel')->middleware('auth')->name('AddCrousel');
-    route::get('/Infrmasi/PPID','informasiPPID');
+    route::get('/PPID/InformasiPublik','informasiPublik');
+    route::get('/PPID/informasiBerkala','informasiBerkala');
+    route::get('/PPID/informasiSertaMerta','informasiSertaMerta');
+    route::get('/PPID/informasiDiKecualikan','informasiDiKecualikan');
+    route::get('/PPID/informasiSetiapSaat','informasiSetiapSaat');
 });
 Route::controller(ProfilController::class)->group(function(){
     route::get('/profil/sejarah','sejarah');
     route::get('/profil/visimisimottonilai','visimisi');
     route::get('/profil/strukturorganisasi','organisasi');
-    route::get('/profil/direktur','direktur');
+    route::get('/profil/direktur','direktur'); 
 
 });
 Route::controller(InformasiController::class)->group(function(){
