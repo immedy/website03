@@ -49,10 +49,25 @@
                                             onfocus="this.placeholder = ''" onblur="this.placeholder = 'Alamat'" required
                                             class="single-input">
                                     </div>
+                                    <div>
+                                        <label for="">Apakah Ada indikasi kecurangan dari pelayanan yang kami berikan ?</label>
+                                    </div>
+                                    <div class="mt-10 border border-primary">
+                                        
+                                        <div class="form-select" id="default-select" >
+                                            <select name="kecurangan">
+                                                <option value="tidak">Tidak</option>
+                                                <option value="Ya">Iya</option>                                              
+                                                
+                                            </select>
+                                        </div>
+                                    </div>
                                     <div class="mt-10">
-                                        <textarea class="single-textarea border border-primary" name="kritiksaran" "Kritik Dan Saran"
+                                        <textarea class="single-textarea border border-primary" name="kritiksaran" placeholder="Kritik Dan Saran"
                                             onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kritik Dan Saran'" required></textarea>
                                     </div>
+
+                                   
                                     <div>
                                         <label for="">Bagaimana Pendapat Anda Tentang Pelayanan Kami ?</label>
                                     </div>
@@ -67,6 +82,7 @@
                                             </select>
                                         </div>
                                     </div>
+                                    
                                     <div class="input-group-icon mt-10">
                                         <div class="button-group-area d-flex justify-content-end">
                                             <button type="reset" class="genric-btn primary">Reset</button>

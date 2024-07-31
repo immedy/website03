@@ -30,6 +30,7 @@
                                                 <th class="p-0 min-w-140px text-center">No Telepon</th>
                                                 <th class="p-0 min-w-110px text-center">Pesan</th>
                                                 <th class="p-0 min-w-50px text-center">Penilaian</th>
+                                                <th class="p-0 min-w-50px text-center">Kecurangan</th>
                                             </tr>
                                         </thead>
                                         <!--end::Table head-->
@@ -98,6 +99,9 @@
                                                             @default
                                                         @endswitch
 
+                                                    </td>
+                                                    <td class="text-center">
+                                                        {{$p->kecurangan}}
                                                     </td>
                                                 </tr>
                                             @endforeach

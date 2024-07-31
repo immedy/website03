@@ -38,11 +38,12 @@ class KritikSaranController extends Controller
             'alamat'        => 'required',
             'kritiksaran'   => 'required',
             'nilai'         => 'required',
+            'kecurangan'    => 'required',
         ]);
         
         kritiksaran::create($ValidasiKritikSaran);
         if ($ValidasiKritikSaran){
-            Alert::Success('Terima Kasih, 
+            Alert::Success('Terima Kasih
             Kritik dan Saran Anda Membantu Kami Menjadi Lebih Baik');
         }
         return back();
