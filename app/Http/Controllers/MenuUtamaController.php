@@ -106,19 +106,9 @@ class MenuUtamaController extends Controller
 
     public function JadwalDokter()
     {
-<<<<<<< HEAD
         return view('LandingPage.Konten.JadwalDokter.JadwalDokter',[
             'jadwalDokter' =>jadwaldokter::where('status_aktif', 1)->get()
         ]);
-=======
-        return view('LandingPage.Erorr.Eror');
-    }
-
-    public function InputJadwalDokter($id)
-    {
-        $JadwalDokter = dokter::find($id);
-        return response()->json($JadwalDokter);
->>>>>>> 0677a37207019eaff31570b79db9ee54072ef71d
     }
 
     public function AddCrousel(Request $request)
