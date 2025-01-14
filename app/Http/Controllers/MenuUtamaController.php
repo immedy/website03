@@ -22,7 +22,7 @@ class MenuUtamaController extends Controller
     {
         return view('LandingPage.Konten.index',[
             'berita' => berita::latest()->paginate(3),
-            'dokter' => dokter::all(),
+            'dokter' => dokter::where('status', 1)->get(),
             'instalasi' => instalasi::where('status',1)->get(),
             'carosel' => carousel::all()
         ]);
