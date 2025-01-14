@@ -7,6 +7,7 @@
     <title>Dayaku Raja</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="facebook-domain-verification" content="fcmc82c63y07wjuanf3bcr1fk45821" />
 
     <!-- <link rel="manifest" href="site.webmanifest"> -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset("LandingPage/img/daraico.ico") }}">
@@ -99,6 +100,7 @@
                                             </ul>
                                         </li>
                                         <li><a href="/JadwalDokter">Jadwal Dokter</a></li>
+                                        <li><a href="https://ppid.dayakuraja.id/" target="_blank">PPID</a></li>
                                     </ul>
                                 </nav>
                             </div>

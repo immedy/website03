@@ -58,3 +58,15 @@ $(document).ready(function() {
     });
 
 });
+
+$(document).ready(function(){
+    $('table').on('click','#deleteDokter', function(){
+        var dokterURL = $(this).data('url');
+        $.get(dokterURL, function(data){
+            $('#deleteDokterModal').modal('show');
+            $('#nama').text(data.nama);
+            $('#id').val(data.id);
+        })
+    });
+
+});

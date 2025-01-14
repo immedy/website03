@@ -14,4 +14,9 @@ class dokter extends Model
     {
         return $this->belongsTo(referensi::class,'spesialis');
     }
+
+    public function JadwalDokter()
+    {
+        return $this->belongsTo(jadwaldokter::class,'id','dokter_id');
+    }
 }

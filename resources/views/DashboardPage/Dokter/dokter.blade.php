@@ -46,6 +46,7 @@
                                                 No
                                             </th>
                                             <th class="min-w-300px">Nama</th>
+                                            <th class="min-w-300px">Tanggal Dari Sampai</th>
                                             <th class="min-w-100px text-end">Actions</th>
                                         </tr>
                                     </thead>
@@ -60,6 +61,13 @@
                                                     <div class="d-flex justify-content-start flex-column">
                                                         <a class="text-dark fw-bolder text-hover-primary fs-6">{{ $p->nama }}</a>
                                                         <span class="text-muted fw-bold text-muted d-block fs-7">Spesialis : {{ $p->referensi->deskripsi }}</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="d-flex justify-content-start flex-column">
+                                                        <a class="text-dark fw-bolder text-hover-primary fs-6">{{ $p->JadwalDokter->FormatTanggalDari ??''}} - {{$p->JadwalDokter->FormatTanggalSampai ??''}} </a>
                                                     </div>
                                                 </div>
                                             </td>
@@ -79,7 +87,7 @@
                                                             </svg>
                                                             <!--end::Svg Icon-->
                                                     </a>
-                                                    <a href="#"
+                                                    <a href="avascript:void(0)" data-url="{{route('deletedokter', $p->id)}}" id="deleteDokter"
                                                         class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm me-1 border  border-danger">
                                                         <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
                                                         <span class="svg-icon svg-icon-3">
@@ -154,68 +162,105 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="dokter-nama"></h5>
+                   
                 </div>
                 <form action="{{route('addJadwalDokter')}}" method="post" >
                     @csrf
                     <div class="modal-body">
-                        <div class="fv-row ">
-                            
-                            <input type="text" name="dokter" id="dokter-id" class="form-control form-control-solid mb-3 mb-lg-0" hidden />
+                        <div class="fv-row ">                            
+                            <input type="text" name="dokter_id" id="dokter-id" class="form-control form-control-solid mb-3 mb-lg-0" hidden />
                         </div>
-                        <div class="fv-row ">
-                            <label class="text-dark fw-bolder text-hover-primary fs-6">Tanggal</label>
-                            <input type="text" name="tanggal" id="TanggalJadwalDokter" class="form-control form-control-solid mb-3 mb-lg-0"/>                            
+                        <div class="mb-10">
+                            <label for="" class="form-label">Pilih Tangall Dari</label>
+                            <input class="form-control form-control-solid" placeholder="Pilih Tanggal" id="tanggalDari" name="dari"/>
+                        </div>
+                        <div class="mb-10">
+                            <label for="" class="form-label">Pilih Tanggal Sampai</label>
+                            <input class="form-control form-control-solid" placeholder="Pilih Tanggal" id="tanggalSampai" name="sampai"/>
                         </div>
                         <div class="fv-row ">
                             <label class="text-dark fw-bolder text-hover-primary fs-6">Senin</label>
                             <select name="senin" class="form-select form-select-solid"
                                  required>
-                                <option></option>
-                                @foreach ($jadwalDokter as $p )
-                                <option value="{{$p->id}}">{{$p->deskripsi}}</option>
-                                @endforeach                                    
+                                 <option value="1">Pelayanan</option> 
+                                 <option value="0">Tidak Pelayanan</option>                                        
                             </select>
                         </div>
                         <div class="fv-row ">
                             <label class="text-dark fw-bolder text-hover-primary fs-6">Selasa</label>
                             <select name="selasa" class="form-select form-select-solid"
                                  required>
-                                <option></option>
-                                @foreach ($jadwalDokter as $p )
-                                <option value="{{$p->id}}">{{$p->deskripsi}}</option>
-                                @endforeach                                    
+                                 <option value="1">Pelayanan</option> 
+                                 <option value="0">Tidak Pelayanan</option>                                   
                             </select>
                         </div> 
                         <div class="fv-row ">
                             <label class="text-dark fw-bolder text-hover-primary fs-6">Rabu</label>
                             <select name="rabu" class="form-select form-select-solid"
                                  required>
-                                <option></option>
-                                @foreach ($jadwalDokter as $p )
-                                <option value="{{$p->id}}">{{$p->deskripsi}}</option>
-                                @endforeach                                    
+                                 <option value="1">Pelayanan</option> 
+                                 <option value="0">Tidak Pelayanan</option>                                   
                             </select>
                         </div>
                         <div class="fv-row ">
                             <label class="text-dark fw-bolder text-hover-primary fs-6">Kamis</label>
                             <select name="kamis" class="form-select form-select-solid"
                                  required>
-                                <option></option>
-                                @foreach ($jadwalDokter as $p )
-                                <option value="{{$p->id}}">{{$p->deskripsi}}</option>
-                                @endforeach                                    
+                                 <option value="1">Pelayanan</option> 
+                                 <option value="0">Tidak Pelayanan</option>                                  
                             </select>
                         </div>                                                  
                         <div class="fv-row ">
                             <label class="text-dark fw-bolder text-hover-primary fs-6">Jumat</label>
                             <select name="jumat" class="form-select form-select-solid"
                                  required>
-                                <option></option>
-                                @foreach ($jadwalDokter as $p )
-                                <option value="{{$p->id}}">{{$p->deskripsi}}</option>
-                                @endforeach                                    
+                                <option value="1">Pelayanan</option> 
+                                <option value="0">Tidak Pelayanan</option>                                  
                             </select>
                         </div> 
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Keluar</button>
+                        <button type="submit" class="btn btn-primary"><span class="indicator-label">
+                                Simpan
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade " tabindex="-1" id="deleteDokterModal">
+        <div class="modal-dialog border border-danger">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="dokter-nama"></h5>
+                   
+                </div>
+                <form action="{{route('updateStatusDokter')}}" method="post" >
+                    @csrf
+                    <div class="modal-body">
+                        <div class="fv-row ">                            
+                            <input type="text" name="id" id="id" class="form-control form-control-solid mb-3 mb-lg-0" hidden />
+                        </div>
+                        <div class="alert alert-danger">
+                            <!--begin::Icon-->
+                            <span class="svg-icon svg-icon-2hx svg-icon-primary me-3">Peringatan</span>
+                            <!--end::Icon-->
+                        
+                            <!--begin::Wrapper-->
+                            <div class="d-flex flex-column">
+                                <!--begin::Title-->
+                                <h1 class="mb-1 text-dark" id="nama"></h1>
+                                <!--end::Title-->
+                                <!--begin::Content-->
+                                <span>Apakah Anda Yakin akan Menonaktifkannya ?</span>
+                                <!--end::Content-->
+                            </div>
+                            <!--end::Wrapper-->
+                        </div>
+                        
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light" data-bs-dismiss="modal">Keluar</button>

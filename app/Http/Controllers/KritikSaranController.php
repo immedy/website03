@@ -38,6 +38,7 @@ class KritikSaranController extends Controller
             'alamat'        => 'required',
             'kritiksaran'   => 'required',
             'nilai'         => 'required',
+            'kecurangan'    => 'required',
         ]);
         
         kritiksaran::create($ValidasiKritikSaran);

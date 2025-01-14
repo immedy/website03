@@ -7,6 +7,7 @@ use App\Models\carousel;
 use App\Models\dokter;
 use App\Models\dokumen;
 use App\Models\instalasi;
+use App\Models\jadwaldokter;
 use App\Models\laporankerusakan;
 use App\Models\MenuUtama;
 use App\Models\ruangan;
@@ -105,13 +106,9 @@ class MenuUtamaController extends Controller
 
     public function JadwalDokter()
     {
-        return view('LandingPage.Konten.JadwalDokter.JadwalDokter');
-    }
-
-    public function InputJadwalDokter($id)
-    {
-        $JadwalDokter = dokter::find($id);
-        return response()->json($JadwalDokter);
+        return view('LandingPage.Konten.JadwalDokter.JadwalDokter',[
+            'jadwalDokter' =>jadwaldokter::where('status_aktif', 1)->get()
+        ]);
     }
 
     public function AddCrousel(Request $request)

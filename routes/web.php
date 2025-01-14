@@ -44,7 +44,6 @@ Route::controller(MenuUtamaController::class)->group(function(){
     route::delete('/hapus/{id}','Hapus')->name('hapus')->middleware('auth');
     route::get('/tampil/{id}','show')->name('tampil')->middleware('auth');
     route::post('/AddDokumen','AddDokumen')->name('AddDokumen')->middleware('auth');
-    route::get('/InputJadwalDokter/{id}','InputJadwalDokter')->middleware('auth')->name('InputJadwalDokter');
     route::post('/InputCrousel','AddCrousel')->middleware('auth')->name('AddCrousel');
 });
 Route::controller(ProfilController::class)->group(function(){
@@ -103,6 +102,9 @@ Route::controller(DokterController::class)->group(function(){
     route::get('/dashboard/dokter','index')->middleware('auth');
     route::post('/addDokter','addDokter')->name('addDokter')->middleware('auth');
     route::post('addJadwalDokter','addJadwalDokter')->name('addJadwalDokter')->middleware('auth');
+    route::get('/InputJadwalDokter/{id}','InputJadwalDokter')->middleware('auth')->name('InputJadwalDokter');
+    route::get('/NonAktif/{id}','nonAktif')->middleware('auth')->name('deletedokter');
+    route::post('updateStatusDokter','updateStatusDokter')->middleware('auth')->name('updateStatusDokter');
 });
 
 Route::controller(UserController::class)->group(function(){
