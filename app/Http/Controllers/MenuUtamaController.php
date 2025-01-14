@@ -106,9 +106,19 @@ class MenuUtamaController extends Controller
 
     public function JadwalDokter()
     {
+<<<<<<< HEAD
         return view('LandingPage.Konten.JadwalDokter.JadwalDokter',[
             'jadwalDokter' =>jadwaldokter::where('status_aktif', 1)->get()
         ]);
+=======
+        return view('LandingPage.Erorr.Eror');
+    }
+
+    public function InputJadwalDokter($id)
+    {
+        $JadwalDokter = dokter::find($id);
+        return response()->json($JadwalDokter);
+>>>>>>> 0677a37207019eaff31570b79db9ee54072ef71d
     }
 
     public function AddCrousel(Request $request)
@@ -121,8 +131,29 @@ class MenuUtamaController extends Controller
         }
         $ValidasiCarosel['status'] = 1;
         carousel::create($ValidasiCarosel);
+        if($ValidasiCarosel){
+            Alert::success('Berhasil');
+        }
         return back();
     }
-
-    
+    public function informasiPublik()
+    {
+        return view('LandingPage.Konten.PPID.InformasiPublik');
+    }
+    public function informasiBerkala()
+    {
+        return view('LandingPage.Konten.PPID.InformasiBerkala');
+    }
+    public function informasiSertaMerta()
+    {
+        return view('LandingPage.Konten.PPID.InformasiSertaMerta');
+    }
+    public function informasiDiKecualikan()
+    {
+        return view('LandingPage.Konten.PPID.InformasiDiKecualikan');
+    }
+    public function informasiSetiapSaat()
+    {
+        return view('LandingPage.Konten.PPID.InformasiSetipaSaat');
+    }
 }

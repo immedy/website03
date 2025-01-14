@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{{ asset("LandingPage/css/bootstrap.min.css") }}">
     <link rel="stylesheet" href="{{ asset("LandingPage/css/owl.carousel.min.css") }}">
     <link rel="stylesheet" href="{{ asset("LandingPage/css/magnific-popup.css") }}">
-    <link rel="stylesheet" href="{{ asset("LandingPage/css/font-awesome.min.css") }}">
+    <link rel="stylesheet" href="{{ asset("LandingPage/css/font-awesome.min.css") }}"> 
     <link rel="stylesheet" href="{{ asset("LandingPage/css/themify-icons.css") }}">
     <link rel="stylesheet" href="{{ asset("LandingPage/css/nice-select.css") }}">
     <link rel="stylesheet" href="{{ asset("LandingPage/css/flaticon.css") }}">
@@ -77,6 +77,7 @@
                                                 <li><a href="/profil/sejarah">Sejarah</a></li>
                                                 <li><a href="/profil/strukturorganisasi">Strukrur Organisasi</a></li>
                                                 <li><a href="/Kesalahan">Prestasi</a></li>
+                                                <li><a href="/profil/direktur">Direktur</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="#" class="{{ Request::is('informasi/*')?'active' : '' }}">Informasi<i class="ti-angle-down"></i></a>
@@ -99,8 +100,21 @@
                                                 <li><a href="/Instalasi/Farmasi">Instalasi Farmasi</a></li>
                                             </ul>
                                         </li>
+<<<<<<< HEAD
                                         <li><a href="/JadwalDokter">Jadwal Dokter</a></li>
                                         <li><a href="https://ppid.dayakuraja.id/" target="_blank">PPID</a></li>
+=======
+                                        <li><a href="#" class="{{ Request::is('PPID/*')?'active' : '' }}">PPDI<i class="ti-angle-down"></i></a>
+                                            <ul class="submenu">  
+                                                <li><a href="/PPID/InformasiPublik">Informasi Publik</a></li> 
+                                                <li><a href="/PPID/informasiBerkala">Informasi Berkala</a></li> 
+                                                <li><a href="/PPID/informasiSetiapSaat">Informasi Setiap Saat</a></li> 
+                                                <li><a href="/PPID/informasiSertaMerta">Informasi Serta Merta</a></li> 
+                                                <li><a href="/PPID/informasiDiKecualikan">Informasi Dikecualiakan</a></li> 
+                                                <li><a href="">Form Permohonan Informasi</a></li>
+                                            </ul>
+                                        </li>
+>>>>>>> 0677a37207019eaff31570b79db9ee54072ef71d
                                     </ul>
                                 </nav>
                             </div>

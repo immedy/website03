@@ -45,11 +45,17 @@ Route::controller(MenuUtamaController::class)->group(function(){
     route::get('/tampil/{id}','show')->name('tampil')->middleware('auth');
     route::post('/AddDokumen','AddDokumen')->name('AddDokumen')->middleware('auth');
     route::post('/InputCrousel','AddCrousel')->middleware('auth')->name('AddCrousel');
+    route::get('/PPID/InformasiPublik','informasiPublik');
+    route::get('/PPID/informasiBerkala','informasiBerkala');
+    route::get('/PPID/informasiSertaMerta','informasiSertaMerta');
+    route::get('/PPID/informasiDiKecualikan','informasiDiKecualikan');
+    route::get('/PPID/informasiSetiapSaat','informasiSetiapSaat');
 });
 Route::controller(ProfilController::class)->group(function(){
     route::get('/profil/sejarah','sejarah');
     route::get('/profil/visimisimottonilai','visimisi');
     route::get('/profil/strukturorganisasi','organisasi');
+    route::get('/profil/direktur','direktur'); 
 
 });
 Route::controller(InformasiController::class)->group(function(){
@@ -121,8 +127,4 @@ Route::controller(UserController::class)->group(function(){
 
 Route::controller(LaporanKerusakanController::class)->group(function(){
     route::post('/AddlaporanKerusakan','AddLaporanKerusakan')->name('AddLaporanKerusakan')->middleware('auth');
-});
-
-Route::get('/foo', function () {
-    Artisan::call('storage:link');
 });
