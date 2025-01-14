@@ -100,21 +100,8 @@
                                                 <li><a href="/Instalasi/Farmasi">Instalasi Farmasi</a></li>
                                             </ul>
                                         </li>
-<<<<<<< HEAD
                                         <li><a href="/JadwalDokter">Jadwal Dokter</a></li>
                                         <li><a href="https://ppid.dayakuraja.id/" target="_blank">PPID</a></li>
-=======
-                                        <li><a href="#" class="{{ Request::is('PPID/*')?'active' : '' }}">PPDI<i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">  
-                                                <li><a href="/PPID/InformasiPublik">Informasi Publik</a></li> 
-                                                <li><a href="/PPID/informasiBerkala">Informasi Berkala</a></li> 
-                                                <li><a href="/PPID/informasiSetiapSaat">Informasi Setiap Saat</a></li> 
-                                                <li><a href="/PPID/informasiSertaMerta">Informasi Serta Merta</a></li> 
-                                                <li><a href="/PPID/informasiDiKecualikan">Informasi Dikecualiakan</a></li> 
-                                                <li><a href="">Form Permohonan Informasi</a></li>
-                                            </ul>
-                                        </li>
->>>>>>> 0677a37207019eaff31570b79db9ee54072ef71d
                                     </ul>
                                 </nav>
                             </div>
