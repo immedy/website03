@@ -37,10 +37,10 @@
                     <div class="row">
                         <div class="col-xl-6 col-md-6 ">
                             <div class="social_media_links">                                
-                                <a href="https://www.facebook.com/pkrs.dayakurajakotabangun.1" target="_blank">
+                                <a href="https://www.facebook.com/rsdayakurajakotabangun?mibextid=ZbWKwL" target="_blank">
                                     <i class="fa fa-facebook">Facebook</i>
                                 </a>
-                                <a href="https://instagram.com/rsud_dayaku_raja?igshid=MzRlODBiNWFlZA==" target="_blank">
+                                <a href="https://www.instagram.com/rsdayakuraja?igsh=aGZlbGE4YmJyd242" target="_blank">
                                     <i class="fa fa-instagram"> Instagram</i>
                                 </a>
                             </div>
