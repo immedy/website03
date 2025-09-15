@@ -46,6 +46,7 @@
         CKEDITOR.replace('editor');
     </script>
     <script src="{{ asset('DashboardPage/js/tanggal.js') }}"></script>
+    <script src="{{asset('DashboardPage/plugins/custom/fslightbox/fslightbox.bundle.js')}}"></script>
     <script>
        $(document).ready(function () {
             $('#instalasi').on('change', function () {

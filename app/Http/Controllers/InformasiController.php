@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\berita;
+use App\Models\galery;
 use App\Models\instalasi;
 use App\Models\layanan;
 use App\Models\referensi;
@@ -85,4 +86,49 @@ class InformasiController extends Controller
         return view('LandingPage.Konten.Informasi.InformasiPublik');
     }
     
+    public function galeryLandingPage()
+    {
+        return view('LandingPage.Konten.Informasi.galeri',[
+            'galery' => galery::latest()->get()
+        ]);
+    }
+    public function galeryDashboardPage()
+    {
+        return view('DashboardPage.informasi.galery',[
+            'galery' => galery::latest()->get()
+        ]);
+    }
+    public function addImagesToGalery(Request $request)
+    {
+        $dataValidate = $request->validate([
+            'keterangan'    => 'required',
+            'galery'        => 'required|mimes:png,jpg|max:1028',
+        ],[
+            'keterangan.required'   => 'Keterangan tidak boleh kosong',
+            'galery.required'       => 'File Tidak Boleh Kosong',
+            'galery.mimes'          => 'File Format tidak didukung',
+        ]);
+        if ($request->hasFile('galery')){
+            $dataValidate['galery']= $request->file('galery')->store('Galery');
+        }
+        galery::create($dataValidate);
+        if($dataValidate){
+            Alert::Success('gambar berhasil di upload');
+        }
+        return back();
+    }
+
+    public function deleteImagesToGalery($id)
+    {
+        $deleteGalery = galery::findOrFail($id);
+        if(!empty($deleteGalery->galery)){
+            Storage::delete($deleteGalery->galery);
+        }
+        $deleteGalery->delete();
+        if ($deleteGalery){
+            Alert::success('Berita Berhasil di Hapus');
+        }
+        return back();
+    }
+
 }

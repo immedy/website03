@@ -45,11 +45,6 @@ Route::controller(MenuUtamaController::class)->group(function(){
     route::get('/tampil/{id}','show')->name('tampil')->middleware('auth');
     route::post('/AddDokumen','AddDokumen')->name('AddDokumen')->middleware('auth');
     route::post('/InputCrousel','AddCrousel')->middleware('auth')->name('AddCrousel');
-    route::get('/PPID/InformasiPublik','informasiPublik');
-    route::get('/PPID/informasiBerkala','informasiBerkala');
-    route::get('/PPID/informasiSertaMerta','informasiSertaMerta');
-    route::get('/PPID/informasiDiKecualikan','informasiDiKecualikan');
-    route::get('/PPID/informasiSetiapSaat','informasiSetiapSaat');
 });
 Route::controller(ProfilController::class)->group(function(){
     route::get('/profil/sejarah','sejarah');
@@ -67,6 +62,11 @@ Route::controller(InformasiController::class)->group(function(){
     route::get('/dashboard/berita/edit/{id}','detailberita')->name('detailberita')->middleware('auth');
     route::delete('/dashboard/berita/hapus/{id}','hapusberita')->name('hapusberita')->middleware('auth');
     route::post('/simpan','simpanOrupdate')->name('simpanberita')->middleware('auth');
+    route::get('/informasi/galery','galeryLandingPage');
+    route::get('/dashboard/galery','galeryDashboardPage')->middleware('auth');
+    route::post('addImagesToGalery','addImagesToGalery')->name('addImagesToGalery')->middleware('auth');
+    route::delete('deleteImagesToGalery/{id}','deleteImagesToGalery')->name('deleteImagesToGalery')->middleware('auth');
+
 });
 
 Route::controller(InstalasiController::class)->group(function(){

@@ -84,6 +84,7 @@
                                             <ul class="submenu">
                                                 <li><a href="/informasi/berita">Berita</a></li>
                                                 <li><a href="/informasi/InformasiPublik">Informasi Publik</a></li>
+                                                <li><a href="/informasi/galery">Galeri</a></li>
                                                 <li><a href="/Kesalahan">Capaian Indikator</a></li>
                                                 <li><a href="/Kesalahan">Tata Tertib Pengunjung</a></li>                                                
                                             </ul>
