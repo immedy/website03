@@ -15,7 +15,7 @@
                                  <h1>{{ $p->judul }}</h1>
                               </a>                                
                                 <ul class="blog-info-link mt-3 mb-4">
-                                    <li><a href="#"><i class="fa fa-user"></i>{{ $p->user_id }} Ragil M. Rivandi</a>
+                                    <li><a href="#"><i class="fa fa-user"></i> Admin</a>
                                     </li>
                                     <li><a href="#"><i
                                                 class="fa fa-comments"></i>{{ $p->created_at->diffForHumans() }}</a></li>
