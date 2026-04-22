@@ -5,6 +5,7 @@ use App\Models\laporankerusakan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\FaqController;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DokterController;
@@ -36,7 +37,7 @@ Route::get('/storage-link', function(){
 
 Route::controller(MenuUtamaController::class)->group(function(){
     route::get('/','HalamanUtama');
-    route::get('/JadwalDokter','JadwalDokter');
+    route::get('/JadwalDokter','JadwalDokter')->name('JadwalDokter');
     route::get('/Kesalahan','Kesalahan');
     route::get('/dashboard','index')->middleware('auth');
     route::get('/dashboard/editor','editor')->name('editor')->middleware('auth');
@@ -45,6 +46,15 @@ Route::controller(MenuUtamaController::class)->group(function(){
     route::get('/tampil/{id}','show')->name('tampil')->middleware('auth');
     route::post('/AddDokumen','AddDokumen')->name('AddDokumen')->middleware('auth');
     route::post('/InputCrousel','AddCrousel')->middleware('auth')->name('AddCrousel');
+    route::get('/faq','faq')->name('faq');
+    route::get('/maklumat-pelayanan','maklumatPelayanan')->name('maklumatPelayanan');
+});
+
+Route::controller(FaqController::class)->group(function(){
+    route::get('/dashboard/faq','indexDashboard')->middleware('auth')->name('dashboardFaqIndex');
+    route::post('/dashboard/faq','store')->middleware('auth')->name('dashboardFaqStore');
+    route::put('/dashboard/faq/{id}','update')->middleware('auth')->name('dashboardFaqUpdate');
+    route::delete('/dashboard/faq/{id}','destroy')->middleware('auth')->name('dashboardFaqDelete');
 });
 Route::controller(ProfilController::class)->group(function(){
     route::get('/profil/sejarah','sejarah');

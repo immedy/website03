@@ -9,6 +9,7 @@ use App\Models\dokumen;
 use App\Models\instalasi;
 use App\Models\jadwaldokter;
 use App\Models\laporankerusakan;
+use App\Models\faq;
 use App\Models\MenuUtama;
 use App\Models\ruangan;
 use Illuminate\Http\Request;
@@ -145,5 +146,17 @@ class MenuUtamaController extends Controller
     public function informasiSetiapSaat()
     {
         return view('LandingPage.Konten.PPID.InformasiSetipaSaat');
+    }
+
+    public function faq()
+    {
+        return view('LandingPage.Konten.LayananMedis.faq', [
+            'faqs' => faq::where('status', true)->orderBy('urutan')->orderByDesc('created_at')->get(),
+        ]);
+    }
+
+    public function maklumatPelayanan()
+    {
+        return view('LandingPage.Konten.Informasi.maklumat_pelayanan');
     }
 }

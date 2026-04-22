@@ -1,0 +1,127 @@
+/* Responsive overrides (mobile-first).
+   This file is referenced in `resources/views/LandingPage/Layout/Layout.blade.php`.
+   Keep rules scoped and safe to avoid affecting unrelated components. */
+
+/* Prevent accidental horizontal scrolling on small screens */
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* Make sure icon images in service cards never blow up */
+.service_area .single_service .icon img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+}
+
+@media (max-width: 767px) {
+  /* Header: keep logo and hamburger from overlapping */
+  .header-area .main-header-area {
+    padding: 10px 0;
+  }
+
+  .header-area .main-header-area .logo img {
+    height: 44px !important;
+    width: auto !important;
+    max-width: 240px;
+  }
+
+  .mobile_menu {
+    position: absolute;
+    top: 18px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 0 12px;
+  }
+
+  .slicknav_menu {
+    margin-top: 0 !important;
+    background: transparent;
+    position: relative;
+    width: 100%;
+  }
+
+  .slicknav_btn {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    top: 0 !important;
+    right: 0 !important;
+    float: right;
+  }
+
+  .slicknav_nav {
+    margin-top: 10px;
+    float: none;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 42px;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Reduce global vertical rhythm on mobile */
+  .section-padding {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  .expert_doctors_area {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  /* Service cards: tighter padding + buttons stack nicely */
+  .service_area .single_service {
+    padding: 28px 18px;
+    text-align: center;
+  }
+
+  .service_area .single_service h3 {
+    font-size: 20px;
+    line-height: 1.25;
+  }
+
+  .service_area .single_service .boxed-btn3-white {
+    display: inline-block;
+    margin-top: 10px;
+    white-space: nowrap;
+  }
+
+  .service_area .single_service .icon img {
+    width: 44px;
+    height: 44px;
+  }
+
+  /* Neuro services cards: more compact header area on mobile */
+  .services_overview_area .services_overview_iconwrap {
+    height: 110px;
+  }
+
+  .services_overview_area .department_content h3 {
+    font-size: 18px;
+  }
+
+  /* Bradcam header: less tall on mobile pages (FAQ, profil, dll) */
+  .bradcam_area {
+    padding: 90px 0 !important;
+  }
+}
+
+@media (max-width: 575px) {
+  /* Slightly smaller hero title on very small devices */
+  .bradcam_area h3 {
+    font-size: 26px;
+  }
+
+  /* Prevent long titles/links from overflowing */
+  .services_overview_area .department_content h3,
+  .faq_area .faq_question_text {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+}

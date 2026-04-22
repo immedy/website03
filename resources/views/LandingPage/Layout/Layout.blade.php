@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="{{ asset("LandingPage/css/slicknav.css") }}">
     <link rel="stylesheet" href="{{ asset("LandingPage/css/style.css") }}">
     <link rel="stylesheet" href="{{ asset('LandingPage/css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('LandingPage/css/custom.css') }}">
 </head>
 <body>
     @include('sweetalert::alert')
@@ -37,10 +38,10 @@
                     <div class="row">
                         <div class="col-xl-6 col-md-6 ">
                             <div class="social_media_links">                                
-                                <a href="https://www.facebook.com/rsdayakurajakotabangun?mibextid=ZbWKwL" target="_blank">
+                                <a href="https://www.facebook.com/rsdayakurajakotabangun?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer">
                                     <i class="fa fa-facebook">Facebook</i>
                                 </a>
-                                <a href="https://www.instagram.com/rsdayakuraja?igsh=aGZlbGE4YmJyd242" target="_blank">
+                                <a href="https://www.instagram.com/rsdayakuraja?igsh=aGZlbGE4YmJyd242" target="_blank" rel="noopener noreferrer">
                                     <i class="fa fa-instagram"> Instagram</i>
                                 </a>
                             </div>
@@ -101,7 +102,7 @@
                                             </ul>
                                         </li>
                                         <li><a href="/JadwalDokter">Jadwal Dokter</a></li>
-                                        <li><a href="https://ppid.dayakuraja.id/" target="_blank">PPID</a></li>
+                                        <li><a href="https://ppid.dayakuraja.id/" target="_blank" rel="noopener noreferrer">PPID</a></li>
                                     </ul>
                                 </nav>
                             </div>

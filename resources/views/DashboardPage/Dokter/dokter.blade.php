@@ -141,7 +141,8 @@
                         <div class="mb-10">
                             <label for="exampleFormControlInput1" class="form-label">Gambar</label>
                             <input type="file" class="form-control form-control-solid" placeholder="gambar"
-                                name="gambar" required/>
+                                name="gambar" id="dokterGambarInput" accept="image/*" required/>
+                            <small class="text-muted d-block mt-2">Setelah pilih file, atur crop agar ukuran foto seragam.</small>
                         </div>
                     </div>
 
@@ -156,6 +157,312 @@
             </div>
         </div>
     </div>
+
+    {{-- Crop Modal (before upload) --}}
+    <div class="modal fade" tabindex="-1" id="dokterCropModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Atur Crop Foto Dokter</h5>
+                    <button type="button" class="btn btn-sm btn-light" data-bs-dismiss="modal" aria-label="Close">Tutup</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-6">
+                        <div class="col-md-8">
+                            <div class="dokter-crop-wrap">
+                                <img id="dokterCropImage" alt="Preview crop" />
+                                <div class="dokter-crop-mask" aria-hidden="true"></div>
+                            </div>
+                            <div class="d-flex align-items-center gap-3 mt-4">
+                                <span class="text-muted">Zoom</span>
+                                <input type="range" class="form-range" id="dokterCropZoom" min="1" max="3" step="0.01" value="1">
+                                <button type="button" class="btn btn-sm btn-light" id="dokterCropReset">Reset</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-muted mb-3">Hasil (264 × 250)</div>
+                            <canvas id="dokterCropPreview" width="264" height="250" class="border rounded w-100"></canvas>
+                            <small class="text-muted d-block mt-3">Drag foto untuk menggeser, lalu atur zoom.</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal" id="dokterCropCancel">Batal</button>
+                    <button type="button" class="btn btn-primary" id="dokterCropApply">Gunakan Foto</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .dokter-crop-wrap {
+            position: relative;
+            width: 100%;
+            max-width: 520px;
+            margin: 0 auto;
+            aspect-ratio: 132 / 125; /* 264x250 */
+            background: #f5f8fa;
+            border-radius: 12px;
+            overflow: hidden;
+            user-select: none;
+            touch-action: none;
+        }
+
+        .dokter-crop-wrap img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            will-change: transform;
+            transform-origin: 0 0;
+            max-width: none;
+            max-height: none;
+            -webkit-user-drag: none;
+            user-drag: none;
+        }
+
+        .dokter-crop-mask {
+            position: absolute;
+            inset: 0;
+            box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.35);
+            border: 2px solid rgba(255, 255, 255, 0.85);
+            border-radius: 12px;
+            pointer-events: none;
+        }
+    </style>
+
+    <script>
+        (function () {
+            function initWhenReady() {
+                if (!window.bootstrap || !window.bootstrap.Modal) {
+                    setTimeout(initWhenReady, 50);
+                    return;
+                }
+
+                const fileInput = document.getElementById('dokterGambarInput');
+                const cropModalEl = document.getElementById('dokterCropModal');
+                const cropImg = document.getElementById('dokterCropImage');
+                const cropWrap = cropImg?.closest('.dokter-crop-wrap');
+                const zoomEl = document.getElementById('dokterCropZoom');
+                const resetBtn = document.getElementById('dokterCropReset');
+                const applyBtn = document.getElementById('dokterCropApply');
+                const cancelBtn = document.getElementById('dokterCropCancel');
+                const previewCanvas = document.getElementById('dokterCropPreview');
+                const previewCtx = previewCanvas?.getContext('2d');
+
+                if (!fileInput || !cropModalEl || !cropImg || !cropWrap || !zoomEl || !resetBtn || !applyBtn || !cancelBtn || !previewCanvas || !previewCtx) return;
+
+                const bsCropModal = new window.bootstrap.Modal(cropModalEl, { backdrop: 'static', keyboard: false });
+
+                let objectUrl = null;
+                let baseScale = 1;
+                let zoom = 1;
+                let translateX = 0;
+                let translateY = 0;
+                let isDragging = false;
+                let dragStartX = 0;
+                let dragStartY = 0;
+                let startX = 0;
+                let startY = 0;
+
+                function clamp(val, min, max) { return Math.max(min, Math.min(max, val)); }
+
+                function viewport() {
+                    const rect = cropWrap.getBoundingClientRect();
+                    return { w: rect.width, h: rect.height };
+                }
+
+                function currentScale() {
+                    return baseScale * zoom;
+                }
+
+                function applyTransform() {
+                    cropImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentScale()})`;
+                    drawPreview();
+                }
+
+                function fitImageToViewport() {
+                    const v = viewport();
+                    const nW = cropImg.naturalWidth || 1;
+                    const nH = cropImg.naturalHeight || 1;
+
+                    baseScale = Math.max(v.w / nW, v.h / nH);
+                    zoom = 1;
+                    zoomEl.value = '1';
+
+                    const scaledW = nW * baseScale;
+                    const scaledH = nH * baseScale;
+                    translateX = (v.w - scaledW) / 2;
+                    translateY = (v.h - scaledH) / 2;
+
+                    applyTransform();
+                }
+
+                function constrainPan() {
+                    const v = viewport();
+                    const nW = cropImg.naturalWidth || 1;
+                    const nH = cropImg.naturalHeight || 1;
+                    const s = currentScale();
+
+                    const scaledW = nW * s;
+                    const scaledH = nH * s;
+
+                    const minX = v.w - scaledW;
+                    const minY = v.h - scaledH;
+
+                    if (minX > 0) translateX = minX / 2;
+                    else translateX = clamp(translateX, minX, 0);
+
+                    if (minY > 0) translateY = minY / 2;
+                    else translateY = clamp(translateY, minY, 0);
+                }
+
+                function drawPreview() {
+                    const v = viewport();
+                    const nW = cropImg.naturalWidth || 1;
+                    const nH = cropImg.naturalHeight || 1;
+                    const s = currentScale();
+
+                    const srcX = (-translateX) / s;
+                    const srcY = (-translateY) / s;
+                    const srcW = v.w / s;
+                    const srcH = v.h / s;
+
+                    previewCtx.clearRect(0, 0, previewCanvas.width, previewCanvas.height);
+                    previewCtx.fillStyle = '#f5f8fa';
+                    previewCtx.fillRect(0, 0, previewCanvas.width, previewCanvas.height);
+
+                    const cX = clamp(srcX, 0, Math.max(0, nW - 1));
+                    const cY = clamp(srcY, 0, Math.max(0, nH - 1));
+                    const cW = clamp(srcW, 1, nW - cX);
+                    const cH = clamp(srcH, 1, nH - cY);
+
+                    previewCtx.drawImage(cropImg, cX, cY, cW, cH, 0, 0, previewCanvas.width, previewCanvas.height);
+                }
+
+                function revokeObjectUrl() {
+                    if (objectUrl) URL.revokeObjectURL(objectUrl);
+                    objectUrl = null;
+                }
+
+                fileInput.addEventListener('change', () => {
+                    const file = fileInput.files && fileInput.files[0];
+                    if (!file) return;
+                    if (!file.type || !file.type.startsWith('image/')) {
+                        fileInput.value = '';
+                        return;
+                    }
+
+                    revokeObjectUrl();
+                    objectUrl = URL.createObjectURL(file);
+                    cropImg.src = objectUrl;
+                    bsCropModal.show();
+                });
+
+                cropImg.addEventListener('load', () => {
+                    requestAnimationFrame(() => fitImageToViewport());
+                });
+
+                zoomEl.addEventListener('input', (e) => {
+                    zoom = parseFloat(e.target.value || '1');
+                    constrainPan();
+                    applyTransform();
+                });
+
+                resetBtn.addEventListener('click', () => {
+                    fitImageToViewport();
+                });
+
+                function pointerDown(ev) {
+                    isDragging = true;
+                    dragStartX = ev.clientX;
+                    dragStartY = ev.clientY;
+                    startX = translateX;
+                    startY = translateY;
+                    cropWrap.setPointerCapture?.(ev.pointerId);
+                }
+
+                function pointerMove(ev) {
+                    if (!isDragging) return;
+                    const dx = ev.clientX - dragStartX;
+                    const dy = ev.clientY - dragStartY;
+                    translateX = startX + dx;
+                    translateY = startY + dy;
+                    constrainPan();
+                    applyTransform();
+                }
+
+                function pointerUp() {
+                    isDragging = false;
+                }
+
+                cropWrap.addEventListener('pointerdown', pointerDown);
+                cropWrap.addEventListener('pointermove', pointerMove);
+                cropWrap.addEventListener('pointerup', pointerUp);
+                cropWrap.addEventListener('pointercancel', pointerUp);
+                cropWrap.addEventListener('pointerleave', pointerUp);
+
+                function clearAndClose() {
+                    bsCropModal.hide();
+                }
+
+                cancelBtn.addEventListener('click', () => {
+                    fileInput.value = '';
+                    clearAndClose();
+                });
+
+                applyBtn.addEventListener('click', async () => {
+                    const v = viewport();
+                    const s = currentScale();
+
+                    const srcX = (-translateX) / s;
+                    const srcY = (-translateY) / s;
+                    const srcW = v.w / s;
+                    const srcH = v.h / s;
+
+                    const outW = 264; // final size (px) - 264x250
+                    const outH = 250;
+                    const canvas = document.createElement('canvas');
+                    canvas.width = outW;
+                    canvas.height = outH;
+                    const ctx = canvas.getContext('2d');
+
+                    const nW = cropImg.naturalWidth || 1;
+                    const nH = cropImg.naturalHeight || 1;
+                    const cX = clamp(srcX, 0, Math.max(0, nW - 1));
+                    const cY = clamp(srcY, 0, Math.max(0, nH - 1));
+                    const cW = clamp(srcW, 1, nW - cX);
+                    const cH = clamp(srcH, 1, nH - cY);
+
+                    ctx.fillStyle = '#ffffff';
+                    ctx.fillRect(0, 0, outW, outH);
+                    ctx.drawImage(cropImg, cX, cY, cW, cH, 0, 0, outW, outH);
+
+                    const blob = await new Promise((resolve) => canvas.toBlob(resolve, 'image/jpeg', 0.9));
+                    if (!blob) return;
+
+                    const originalName = (fileInput.files && fileInput.files[0] && fileInput.files[0].name) ? fileInput.files[0].name : 'dokter.jpg';
+                    const safeName = originalName.replace(/\.[^.]+$/, '') + '-crop.jpg';
+                    const croppedFile = new File([blob], safeName, { type: 'image/jpeg' });
+
+                    const dt = new DataTransfer();
+                    dt.items.add(croppedFile);
+                    fileInput.files = dt.files;
+
+                    clearAndClose();
+                });
+
+                cropModalEl.addEventListener('hidden.bs.modal', () => {
+                    revokeObjectUrl();
+                });
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initWhenReady);
+            } else {
+                initWhenReady();
+            }
+        })();
+    </script>
 
     <div class="modal fade " tabindex="-1" id="JadwalDokterModal">
         <div class="modal-dialog border border-danger">
