@@ -155,8 +155,13 @@ class MenuUtamaController extends Controller
         ]);
     }
 
-    public function maklumatPelayanan()
+    public function ikm()
     {
-        return view('LandingPage.Konten.Informasi.maklumat_pelayanan');
+        $search = trim((string) request('q', ''));
+
+        return view('LandingPage.Konten.LayananMedis.ikm', [
+            'ikmDocuments' => \App\Models\IkmDocument::where('status', true)->filter()->latest('id')->get(),
+            'search' => $search,
+        ]);
     }
 }

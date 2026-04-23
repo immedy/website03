@@ -138,6 +138,22 @@
                                 </a>
                             </div>
                             <div class="menu-item">
+                                <a class="menu-link " href="/dashboard/ikm">
+                                    <span class="menu-icon">
+                                        <span class="svg-icon svg-icon-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-clipboard-data" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M4 11a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0v-1zm3-4a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0V7zm3 2a1 1 0 1 1 2 0v3a1 1 0 1 1-2 0V9z" />
+                                                <path
+                                                    d="M10.5 1a.5.5 0 0 1 .5.5V2h1a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h1v-.5a.5.5 0 0 1 .5-.5h5zM6 2h4v-.5H6V2z" />
+                                            </svg>
+                                        </span>
+                                    </span>
+                                    <span class="menu-title">Index Kepuasan</span>
+                                </a>
+                            </div>
+                            <div class="menu-item">
                                 <a class="menu-link " href="/dashboard/galery">
                                     <span class="menu-icon">
                                         <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->

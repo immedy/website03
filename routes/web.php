@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FaqController;
+use App\Http\Controllers\IkmDocumentController;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DokterController;
@@ -47,7 +48,7 @@ Route::controller(MenuUtamaController::class)->group(function(){
     route::post('/AddDokumen','AddDokumen')->name('AddDokumen')->middleware('auth');
     route::post('/InputCrousel','AddCrousel')->middleware('auth')->name('AddCrousel');
     route::get('/faq','faq')->name('faq');
-    route::get('/maklumat-pelayanan','maklumatPelayanan')->name('maklumatPelayanan');
+    route::get('/ikm','ikm')->name('ikm');
 });
 
 Route::controller(FaqController::class)->group(function(){
@@ -55,6 +56,13 @@ Route::controller(FaqController::class)->group(function(){
     route::post('/dashboard/faq','store')->middleware('auth')->name('dashboardFaqStore');
     route::put('/dashboard/faq/{id}','update')->middleware('auth')->name('dashboardFaqUpdate');
     route::delete('/dashboard/faq/{id}','destroy')->middleware('auth')->name('dashboardFaqDelete');
+});
+
+Route::controller(IkmDocumentController::class)->group(function(){
+    route::get('/dashboard/ikm','index')->middleware('auth')->name('dashboardIkmIndex');
+    route::post('/dashboard/ikm','store')->middleware('auth')->name('dashboardIkmStore');
+    route::put('/dashboard/ikm/{id}','update')->middleware('auth')->name('dashboardIkmUpdate');
+    route::delete('/dashboard/ikm/{id}','destroy')->middleware('auth')->name('dashboardIkmDelete');
 });
 Route::controller(ProfilController::class)->group(function(){
     route::get('/profil/sejarah','sejarah');

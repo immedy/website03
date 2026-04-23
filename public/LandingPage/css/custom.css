@@ -151,3 +151,94 @@
 .empty_state {
   padding: 30px 0;
 }
+
+/* News cards: keep image + card heights symmetric */
+.news_area .news_card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.news_area .news_thumb {
+  aspect-ratio: 16 / 9;
+  background: rgba(93, 178, 255, 0.08);
+}
+
+.news_area .news_thumb_img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.news_area .news_content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.news_area .news_title a {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.news_area .news_excerpt {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.news_area .news_meta {
+  margin-bottom: 6px;
+}
+
+/* Reduce big gap between welcome section and services overview (desktop) */
+@media (min-width: 992px) {
+  .welcome_docmed_area {
+    padding-bottom: 140px;
+  }
+
+  .welcome_docmed_area .welcome_thumb .thumb_2 {
+    bottom: -50px;
+  }
+
+  .welcome_docmed_area + .our_department_area.services_overview_area {
+    padding-top: 80px;
+  }
+}
+
+/* IKM table (landing) */
+.ikm_area {
+  background: #ffffff;
+  padding: 80px 0;
+}
+
+.ikm_area .section_title p {
+  margin-top: 10px;
+}
+
+.ikm_table_wrap {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(31, 31, 31, 0.06);
+  overflow: hidden;
+}
+
+.ikm_table {
+  margin-bottom: 0;
+}
+
+.ikm_table thead th {
+  background: rgba(93, 178, 255, 0.1);
+  border-bottom: 1px solid rgba(93, 178, 255, 0.22);
+  font-weight: 600;
+}
+
+.ikm_table td,
+.ikm_table th {
+  vertical-align: middle;
+  padding: 14px 16px;
+}

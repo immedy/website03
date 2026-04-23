@@ -102,7 +102,7 @@
                                             </ul>
                                         </li>
                                         <li><a href="/JadwalDokter">Jadwal Dokter</a></li>
-                                        <li><a href="https://ppid.dayakuraja.id/" target="_blank" rel="noopener noreferrer">PPID</a></li>
+                                        
                                     </ul>
                                 </nav>
                             </div>
