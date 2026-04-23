@@ -29,8 +29,8 @@
         [
             'icon' => 'LandingPage/icon/maklumat.png',
             'title' => 'Standar Pelayanan',
-            'href' => null,
-            'target' => null,
+            'href' => 'https://drive.google.com/file/d/1FgziBhSPEaKujZ1uvFaZCiKBiuLiIOE-/view?usp=drive_link',
+            'target' => '_blank',
         ],
         [
             'icon' => 'LandingPage/icon/hospital-bed.png',
