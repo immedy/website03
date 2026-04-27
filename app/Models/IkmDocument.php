@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Models\referensi;
 
 class IkmDocument extends Model
 {
@@ -19,11 +20,17 @@ class IkmDocument extends Model
     protected $casts = [
         'status' => 'boolean',
         'pegawai_id' => 'integer',
+        'sumber_dokemen' => 'integer',
     ];
 
     public function pegawai(): BelongsTo
     {
         return $this->belongsTo(Pegawai::class, 'pegawai_id');
+    }
+
+    public function sumberDokemen(): BelongsTo
+    {
+        return $this->belongsTo(referensi::class, 'sumber_dokemen');
     }
 
     public function scopeFilter($query)

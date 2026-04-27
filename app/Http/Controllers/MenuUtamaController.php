@@ -10,6 +10,7 @@ use App\Models\instalasi;
 use App\Models\jadwaldokter;
 use App\Models\laporankerusakan;
 use App\Models\faq;
+use App\Models\IkmDocument;
 use App\Models\MenuUtama;
 use App\Models\ruangan;
 use Illuminate\Http\Request;
@@ -158,9 +159,11 @@ class MenuUtamaController extends Controller
     public function ikm()
     {
         $search = trim((string) request('q', ''));
+        $ikmDocuments = IkmDocument::where('status', true)->filter()->latest('id')->get();
 
         return view('LandingPage.Konten.LayananMedis.ikm', [
-            'ikmDocuments' => \App\Models\IkmDocument::where('status', true)->filter()->latest('id')->get(),
+            'internalDocuments' => $ikmDocuments->where('sumber_dokemen', 33)->values(),
+            'externalDocuments' => $ikmDocuments->where('sumber_dokemen', 34)->values(),
             'search' => $search,
         ]);
     }

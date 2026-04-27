@@ -44,40 +44,97 @@
                             </div>
                         </form>
 
-                        <div class="table-responsive ikm_table_wrap">
-                            <table class="table ikm_table">
-                                <thead>
-                                    <tr>
-                                        <th style="width: 70px;">No</th>
-                                        <th>Nama Dokumen</th>
-                                        <th style="width: 160px;">Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @forelse ($ikmDocuments as $doc)
-                                        <tr>
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $doc->deskripsi }}</td>
-                                            <td>
-                                                <a href="{{ $doc->link_dokumen }}" class="btn btn-sm btn-primary"
-                                                    target="_blank" rel="noopener noreferrer">
-                                                    Lihat
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    @empty
-                                        <tr>
-                                            <td colspan="3" class="text-center text-muted py-4">
-                                                @if (!empty($search))
-                                                    Dokumen dengan nama tersebut tidak ditemukan.
-                                                @else
-                                                    Belum ada dokumen IKM.
-                                                @endif
-                                            </td>
-                                        </tr>
-                                    @endforelse
-                                </tbody>
-                            </table>
+                        <ul class="nav nav-tabs mb-3" id="ikmTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="internal-tab" data-toggle="tab" data-bs-toggle="tab" href="#internal" role="tab"
+                                    aria-controls="internal" aria-selected="true">
+                                    Internal
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="external-tab" data-toggle="tab" data-bs-toggle="tab" href="#external" role="tab"
+                                    aria-controls="external" aria-selected="false">
+                                    External
+                                </a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content" id="ikmTabContent">
+                            <div class="tab-pane fade show active" id="internal" role="tabpanel" aria-labelledby="internal-tab">
+                                <div class="table-responsive ikm_table_wrap">
+                                    <table class="table ikm_table">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 70px;">No</th>
+                                                <th>Nama Dokumen</th>
+                                                <th style="width: 160px;">Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @forelse ($internalDocuments as $doc)
+                                                <tr>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $doc->deskripsi }}</td>
+                                                    <td>
+                                                        <a href="{{ $doc->link_dokumen }}" class="btn btn-sm btn-primary"
+                                                            target="_blank" rel="noopener noreferrer">
+                                                            Lihat
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            @empty
+                                                <tr>
+                                                    <td colspan="3" class="text-center text-muted py-4">
+                                                        @if (!empty($search))
+                                                            Dokumen internal dengan nama tersebut tidak ditemukan.
+                                                        @else
+                                                            Belum ada dokumen IKM internal.
+                                                        @endif
+                                                    </td>
+                                                </tr>
+                                            @endforelse
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="external" role="tabpanel" aria-labelledby="external-tab">
+                                <div class="table-responsive ikm_table_wrap">
+                                    <table class="table ikm_table">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 70px;">No</th>
+                                                <th>Nama Dokumen</th>
+                                                <th style="width: 160px;">Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @forelse ($externalDocuments as $doc)
+                                                <tr>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $doc->deskripsi }}</td>
+                                                    <td>
+                                                        <a href="{{ $doc->link_dokumen }}" class="btn btn-sm btn-primary"
+                                                            target="_blank" rel="noopener noreferrer">
+                                                            Lihat
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            @empty
+                                                <tr>
+                                                    <td colspan="3" class="text-center text-muted py-4">
+                                                        @if (!empty($search))
+                                                            Dokumen external dengan nama tersebut tidak ditemukan.
+                                                        @else
+                                                            Belum ada dokumen IKM external.
+                                                        @endif
+                                                    </td>
+                                                </tr>
+                                            @endforelse
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
