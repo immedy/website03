@@ -99,9 +99,13 @@
                         <h2>Selamat Datang di Dayaku Raja</h2>
                         <h5>Maklumat Pelayanan</h5>
                         <p class="text-justify">
-                            Kami siap memberikan pelayanan sesuai dengan standar pelayanan, melakukan perbaikan secara berkala, dan apabila kami
+                            <strong>KEPUTUSAN DIREKTUR</strong>
+                            <br>
+                            <strong>NOMOR : B-70/RSUDDARA/000.8.3.2/04/2026</strong>
+                            <br><br>
+                            "Kami siap memberikan pelayanan sesuai dengan standar pelayanan, melakukan perbaikan secara berkala, dan apabila kami
                             tidak memberikan pelayanan sesuai dengan standar yang telah ditetapkan, kami siap menerima sanksi sesuai dengan
-                            peraturan perundang-undangan.
+                            peraturan perundang-undangan."
                             <br><br>
                             Direktur RSUD Dayaku Raja
                             <br>
@@ -109,7 +113,7 @@
                             <br>
                             <img src="{{ asset('LandingPage/icon/ttd.png') }}" alt="Tanda tangan Direktur" class="maklumat_ttd" loading="lazy" decoding="async">
                             <br>
-                            Ns. Ipandi Lukman, S.Kep., MM
+                            Ns. Ipandi Lukman, S.Kep
                         </p>
                     </div>
                 </div>
