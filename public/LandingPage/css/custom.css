@@ -242,3 +242,11 @@
   vertical-align: middle;
   padding: 14px 16px;
 }
+
+/* Maklumat: signature image */
+.maklumat_ttd {
+  display: block;
+  margin: 4px 0 -10px 0; /* tighten spacing above/below signature */
+  max-width: 120px;
+  height: auto;
+}

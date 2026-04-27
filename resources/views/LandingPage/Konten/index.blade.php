@@ -107,11 +107,10 @@
                             <br>
                             Kabupaten Kutai Kartanegara
                             <br>
-                            <br>
+                            <img src="{{ asset('LandingPage/icon/ttd.png') }}" alt="Tanda tangan Direktur" class="maklumat_ttd" loading="lazy" decoding="async">
                             <br>
                             Ns. Ipandi Lukman, S.Kep., MM
                         </p>
-                        <a href="/profil/sejarah" class="boxed-btn3-white-2">Baca Selengkapnya Sejarah Rumah Sakit</a>
                     </div>
                 </div>
             </div>

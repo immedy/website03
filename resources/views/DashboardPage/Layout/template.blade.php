@@ -25,6 +25,7 @@
     <link href="{{ asset('DashboardPage/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
     <script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
     {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
+    @stack('styles')
     
 </head>
 
@@ -43,8 +44,11 @@
     <script src="{{ asset('DashboardPage/js/date/settings.js') }}"></script>
     <script src="{{ asset('DashboardPage/js/Kritiksaran.js') }}"></script>
     <script>
-        CKEDITOR.replace('editor');
+        if (document.getElementById('editor') && !CKEDITOR.instances.editor) {
+            CKEDITOR.replace('editor');
+        }
     </script>
+    @stack('scripts')
     <script src="{{ asset('DashboardPage/js/tanggal.js') }}"></script>
     <script src="{{asset('DashboardPage/plugins/custom/fslightbox/fslightbox.bundle.js')}}"></script>
     <script>
