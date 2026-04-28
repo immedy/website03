@@ -54,7 +54,7 @@
                                         data-parent="#faqAccordion"
                                     >
                                         <div class="card-body">
-                                            {!! nl2br(e($item->jawaban)) !!}
+                                            {!! ($item->jawaban) !!}
                                         </div>
                                     </div>
                                 </div>
