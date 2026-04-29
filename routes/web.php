@@ -9,6 +9,7 @@ use App\Http\Controllers\FaqController;
 use App\Http\Controllers\IkmDocumentController;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\DirekturController;
 use App\Http\Controllers\DokterController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\InformasiController;
@@ -49,6 +50,12 @@ Route::controller(MenuUtamaController::class)->group(function(){
     route::post('/InputCrousel','AddCrousel')->middleware('auth')->name('AddCrousel');
     route::get('/faq','faq')->name('faq');
     route::get('/ikm','ikm')->name('ikm');
+});
+
+Route::controller(DirekturController::class)->group(function(){
+    route::post('addDirektur','store')->name('addDirektur')->middleware('auth');
+    route::put('direktur/{id}','update')->name('updateDirektur')->middleware('auth');
+    route::delete('direktur/{id}','destroy')->name('deleteDirektur')->middleware('auth');
 });
 
 Route::controller(FaqController::class)->group(function(){

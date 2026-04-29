@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\berita;
 use App\Models\carousel;
+use App\Models\direktur;
 use App\Models\dokter;
 use App\Models\dokumen;
+use App\Models\faq;
+use App\Models\IkmDocument;
 use App\Models\instalasi;
 use App\Models\jadwaldokter;
 use App\Models\laporankerusakan;
-use App\Models\faq;
-use App\Models\IkmDocument;
 use App\Models\MenuUtama;
 use App\Models\ruangan;
 use Illuminate\Http\Request;
@@ -37,6 +38,7 @@ class MenuUtamaController extends Controller
             'ruangan' => ruangan::where('penerima_order',1)->get(),
             'dokumen' => dokumen::latest()->get(),
             'carousel' => carousel::latest()->get(),
+            'direktur' => direktur::latest()->get(),
         ]);
     }
     public function AddDokumen(Request $request)

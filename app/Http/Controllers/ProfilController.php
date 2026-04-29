@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\direktur;
 use App\Models\instalasi;
 use App\Models\MenuUtama;
 use Illuminate\Http\Request;
@@ -31,6 +32,9 @@ class ProfilController extends Controller
     }
     public function direktur()
     {
-        return view('LandingPage.Konten.Profil.direktur');
+        return view('LandingPage.Konten.Profil.direktur',
+        [
+            'direktur' => direktur::all()
+        ]);
     }
 }

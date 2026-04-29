@@ -16,28 +16,20 @@
 <div class="expert_doctors_area doctor_page">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-lg-3">
+            @foreach ($direktur as $p )
+                <div class="col-md-6 col-lg-3">
                 <div class="single_expert mb-40">
                     <div class="expert_thumb">
-                        <img src="{{asset('LandingPage/img/experts/1.png')}}" alt="">
+                        <img src="{{ asset('storage/'.$p->foto_direktur) }}" alt="">
                     </div>
                     <div class="experts_name text-center">
-                        <h3>dr. Aulia Rahman Basri</h3>
-                        <span>Periode Maret 2013 - Juli 2019</span>
+                        <h3>{{$p->nama_lengkap}}</h3>
+                        <span>Periode {{$p->getFormatPeriodeAwalAttribute()}} - {{$p->getFormatPeriodeAkhirAttribute() ?? 'Sekarang'}}</span>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="single_expert mb-40">
-                    <div class="expert_thumb">
-                        <img src="{{asset('/LandingPage/img/experts/2.png')}}" alt="">
-                    </div>
-                    <div class="experts_name text-center">
-                        <h3>dr. Aji Yulia Rahman</h3>
-                        <span>Periode Juli 2019 - Oktober 2023</span>
-                    </div>
-                </div>
-            </div>                   
+            @endforeach
+                         
         </div>
     </div>
 </div>
