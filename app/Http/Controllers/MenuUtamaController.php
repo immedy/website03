@@ -169,4 +169,9 @@ class MenuUtamaController extends Controller
             'search' => $search,
         ]);
     }
+
+    public function penangananPengaduan()
+    {
+        return view ('landingPage.konten.informasi.penanganan');
+    }
 }

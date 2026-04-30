@@ -170,6 +170,22 @@
                                 </a>
                             </div>
                             <div class="menu-item">
+                                <a class="menu-link " href="/dashboard/penanganan-pengaduan">
+                                    <span class="menu-icon">
+                                        <span class="svg-icon svg-icon-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-card-image" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M14.002 3a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1.998a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM13.002 4H2v8h11.002z" />
+                                                <path
+                                                    d="m10.648 7.646-2.646 2.647-1.354-1.354a.5.5 0 0 0-.707 0L3.5 11.379V12h9v-.5l-1.646-1.646a.5.5 0 0 0-.706 0L9 10.999l2.354-2.353a.5.5 0 0 0 0-.707l-.706-.707a.5.5 0 0 0-.707 0zM4.5 6A1.5 1.5 0 1 0 4.5 9 1.5 1.5 0 0 0 4.5 6" />
+                                            </svg>
+                                        </span>
+                                    </span>
+                                    <span class="menu-title">Penanganan Pengaduan</span>
+                                </a>
+                            </div>
+                            <div class="menu-item">
                                 <a class="menu-link " href="/dashboard/dokter">
                                     <span class="menu-icon">
                                         <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->

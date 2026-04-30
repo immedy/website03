@@ -6,6 +6,7 @@ use App\Models\berita;
 use App\Models\galery;
 use App\Models\instalasi;
 use App\Models\layanan;
+use App\Models\PenangananPengaduan;
 use App\Models\referensi;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -128,6 +129,57 @@ class InformasiController extends Controller
         if ($deleteGalery){
             Alert::success('Berita Berhasil di Hapus');
         }
+        return back();
+    }
+
+    public function penangananPengaduan()
+    {
+        return view('LandingPage.Konten.Informasi.penanganan', [
+            'penangananPengaduan' => PenangananPengaduan::latest()->get(),
+        ]);
+    }
+
+    public function penangananPengaduanDashboard()
+    {
+        return view('DashboardPage.informasi.penanganan', [
+            'penangananPengaduan' => PenangananPengaduan::latest()->get(),
+        ]);
+    }
+
+    public function addPenangananPengaduan(Request $request)
+    {
+        $dataValidate = $request->validate([
+            'deskripsi'  => 'required',
+            'gambar'     => 'required|mimes:png,jpg,jpeg|max:2048',
+        ], [
+            'deskripsi.required'   => 'Deskripsi tidak boleh kosong',
+            'gambar.required'      => 'Gambar tidak boleh kosong',
+            'gambar.mimes'         => 'Format gambar tidak didukung',
+        ]);
+
+        if ($request->hasFile('gambar')) {
+            $dataValidate['gambar'] = $request->file('gambar')->store('PenangananPengaduan');
+        }
+
+        PenangananPengaduan::create($dataValidate);
+
+        Alert::success('Data penanganan pengaduan berhasil ditambahkan');
+
+        return back();
+    }
+
+    public function deletePenangananPengaduan($id)
+    {
+        $data = PenangananPengaduan::findOrFail($id);
+
+        if (!empty($data->gambar)) {
+            Storage::delete($data->gambar);
+        }
+
+        $data->delete();
+
+        Alert::success('Data penanganan pengaduan berhasil dihapus');
+
         return back();
     }
 
