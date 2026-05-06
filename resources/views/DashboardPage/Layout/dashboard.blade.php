@@ -44,6 +44,11 @@
                         data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-height="auto"
                         data-kt-scroll-dependencies="#kt_aside_logo, #kt_aside_footer"
                         data-kt-scroll-wrappers="#kt_aside_menu" data-kt-scroll-offset="0">
+                        @php
+                            $isIkmMenuOpen = request()->is('dashboard/ikm') || request()->is('dashboard/ikm/survei');
+                            $isLaporanMenuOpen = request()->is('dashboard/kritiksaran');
+                            $isPegawaiMenuOpen = request()->is('ManajemenPengguna') || request()->is('dashboard/ruangan');
+                        @endphp
                         <!--begin::Menu-->
                         <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500"
                             id="#kt_aside_menu" data-kt-menu="true">
@@ -53,7 +58,7 @@
                                 </div>
                             </div>
                             <div class="menu-item">
-                                <a class="menu-link " href="/dashboard">
+                                <a class="menu-link {{ request()->is('dashboard') ? 'active' : '' }}" href="/dashboard">
                                     <span class="menu-icon">
                                         <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                         <span class="svg-icon svg-icon-2">
@@ -71,7 +76,7 @@
                             </div>
                             {{-- @if (Auth()->user()->akses == 24 || Auth()->user()->akses == 25) --}}
                             <div class="menu-item">
-                                <a class="menu-link " href="/dashboard/instalasi">
+                                <a class="menu-link {{ request()->is('dashboard/instalasi*') ? 'active' : '' }}" href="/dashboard/instalasi">
                                     <span class="menu-icon">
                                         <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                         <span class="svg-icon svg-icon-2">
@@ -88,7 +93,7 @@
                                 </a>
                             </div>
                             <div class="menu-item">
-                                <a class="menu-link " href="/dashboard/instalasi">
+                                <a class="menu-link {{ request()->is('dashboard/instalasi*') ? 'active' : '' }}" href="/dashboard/instalasi">
                                     <span class="menu-icon">
                                         <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                         <span class="svg-icon svg-icon-2">
@@ -106,7 +111,7 @@
                                 </a>
                             </div>
                             <div class="menu-item">
-                                <a class="menu-link " href="/dashboard/berita">
+                                <a class="menu-link {{ request()->is('dashboard/berita*') ? 'active' : '' }}" href="/dashboard/berita">
                                     <span class="menu-icon">
                                         <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                         <span class="svg-icon svg-icon-2">
@@ -124,7 +129,7 @@
                                 </a>
                             </div>
                             <div class="menu-item">
-                                <a class="menu-link " href="/dashboard/faq">
+                                <a class="menu-link {{ request()->is('dashboard/faq') ? 'active' : '' }}" href="/dashboard/faq">
                                     <span class="menu-icon">
                                         <span class="svg-icon svg-icon-2">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -139,21 +144,7 @@
                                     <span class="menu-title">FAQ</span>
                                 </a>
                             </div>
-                            <div class="menu-item">
-                                <a class="menu-link " href="/dashboard/ikm">
-                                    <span class="menu-icon">
-                                        <span class="svg-icon svg-icon-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-bar-chart-steps" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M.5 0a.5.5 0 0 1 .5.5v15a.5.5 0 0 1-1 0V.5A.5.5 0 0 1 .5 0M2 1.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-4a.5.5 0 0 1-.5-.5zm2 4a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm2 4a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1-.5-.5zm2 4a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5z" />
-                                            </svg>
-                                        </span>
-                                    </span>
-                                    <span class="menu-title">Index Kepuasan</span>
-                                </a>
-                            </div>
-                               <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                            <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{ $isIkmMenuOpen ? 'here show' : '' }}">
                                 <span class="menu-link">
                                     <span class="menu-icon">
                                         <!--begin::Svg Icon | path: icons/duotune/general/gen009.svg-->
@@ -175,7 +166,7 @@
                                 </span>
                                 <div class="menu-sub menu-sub-accordion menu-active-bg">
                                     <div class="menu-item">
-                                        <a class="menu-link" href="/dashboard/ikm">
+                                        <a class="menu-link {{ request()->is('dashboard/ikm') ? 'active' : '' }}" href="/dashboard/ikm">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -183,7 +174,7 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a class="menu-link" href="/dashboard/ikm/survei">
+                                        <a class="menu-link {{ request()->is('dashboard/ikm/survei') ? 'active' : '' }}" href="/dashboard/ikm/survei">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -193,39 +184,7 @@
                                 </div>
                             </div>
                             <div class="menu-item">
-                                <a class="menu-link " href="/dashboard/galery">
-                                    <span class="menu-icon">
-                                        <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
-                                        <span class="svg-icon svg-icon-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-image-fill" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M.002 3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2zm1 9v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062zm5-6.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0" />
-                                            </svg>
-                                        </span>
-                                        <!--end::Svg Icon-->
-                                    </span>
-                                    <span class="menu-title">Galery</span>
-                                </a>
-                            </div>
-                            <div class="menu-item">
-                                <a class="menu-link " href="/dashboard/penanganan-pengaduan">
-                                    <span class="menu-icon">
-                                        <span class="svg-icon svg-icon-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-card-image" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M14.002 3a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1.998a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM13.002 4H2v8h11.002z" />
-                                                <path
-                                                    d="m10.648 7.646-2.646 2.647-1.354-1.354a.5.5 0 0 0-.707 0L3.5 11.379V12h9v-.5l-1.646-1.646a.5.5 0 0 0-.706 0L9 10.999l2.354-2.353a.5.5 0 0 0 0-.707l-.706-.707a.5.5 0 0 0-.707 0zM4.5 6A1.5 1.5 0 1 0 4.5 9 1.5 1.5 0 0 0 4.5 6" />
-                                            </svg>
-                                        </span>
-                                    </span>
-                                    <span class="menu-title">Penanganan Pengaduan</span>
-                                </a>
-                            </div>
-                            <div class="menu-item">
-                                <a class="menu-link " href="/dashboard/dokter">
+                                <a class="menu-link {{ request()->is('dashboard/dokter*') ? 'active' : '' }}" href="/dashboard/dokter">
                                     <span class="menu-icon">
                                         <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                         <span class="svg-icon svg-icon-2">
@@ -240,27 +199,7 @@
                                     <span class="menu-title">Dokter</span>
                                 </a>
                             </div>
-                            <div class="menu-item">
-                                <a class="menu-link " href="">
-                                    <span class="menu-icon">
-                                        <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
-                                        <span class="svg-icon svg-icon-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-journal-text" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
-                                                <path
-                                                    d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z" />
-                                                <path
-                                                    d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z" />
-                                            </svg>
-                                        </span>
-                                        <!--end::Svg Icon-->
-                                    </span>
-                                    <span class="menu-title">Laporan Kerusakan</span>
-                                </a>
-                            </div>
-                            <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                            <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{ $isLaporanMenuOpen ? 'here show' : '' }}">
                                 <span class="menu-link">
                                     <span class="menu-icon">
                                         <!--begin::Svg Icon | path: icons/duotune/general/gen009.svg-->
@@ -282,7 +221,7 @@
                                 </span>
                                 <div class="menu-sub menu-sub-accordion menu-active-bg">
                                     <div class="menu-item">
-                                        <a class="menu-link" href="/dashboard/kritiksaran">
+                                        <a class="menu-link {{ request()->is('dashboard/kritiksaran') ? 'active' : '' }}" href="/dashboard/kritiksaran">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -312,7 +251,7 @@
                                     <span class="menu-section text-muted text-uppercase fs-8 ls-1">Pegawai</span>
                                 </div>
                             </div>
-                            <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                            <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{ $isPegawaiMenuOpen ? 'here show' : '' }}">
                                 <span class="menu-link">
                                     <span class="menu-icon">
                                         <!--begin::Svg Icon | path: icons/duotune/general/gen009.svg-->
@@ -330,7 +269,7 @@
                                 </span>
                                 <div class="menu-sub menu-sub-accordion menu-active-bg">
                                     <div class="menu-item">
-                                        <a class="menu-link" href="/ManajemenPengguna">
+                                        <a class="menu-link {{ request()->is('ManajemenPengguna') ? 'active' : '' }}" href="/ManajemenPengguna">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -338,7 +277,7 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a class="menu-link" href="/dashboard/ruangan">
+                                        <a class="menu-link {{ request()->is('dashboard/ruangan') ? 'active' : '' }}" href="/dashboard/ruangan">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -348,7 +287,7 @@
                                 </div>
                             </div>
                             <div class="menu-item">
-                                <a class="menu-link " href="/dashboard/referensi">
+                                <a class="menu-link {{ request()->is('dashboard/referensi') ? 'active' : '' }}" href="/dashboard/referensi">
                                     <span class="menu-icon">
                                         <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                         <span class="svg-icon svg-icon-2">
