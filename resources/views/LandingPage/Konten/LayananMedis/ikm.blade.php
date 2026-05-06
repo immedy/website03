@@ -157,7 +157,6 @@
                                                 >
                                                     <div class="survei-ikm-thumb-link">
                                                         <div class="survei-ikm-thumb survei-ikm-thumb--pdf d-flex flex-column align-items-center justify-content-center text-center px-4">
-                                                            <span class="survei-ikm-thumb-badge">PDF</span>
                                                             <span class="survei-ikm-thumb-icon">QR</span>
                                                             <span class="survei-ikm-thumb-text">Klik untuk mengisi survei</span>
                                                         </div>
