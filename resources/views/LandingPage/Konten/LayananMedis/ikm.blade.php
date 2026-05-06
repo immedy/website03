@@ -205,9 +205,6 @@
         <p class="survei-preview-description" id="surveiPreviewDescription"></p>
     </div>
     <div class="survei-preview-footer">
-        <a href="#" id="surveiPreviewLink" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-            Buka Dokumen
-        </a>
         <button type="button" class="btn btn-light btn-sm" id="surveiPreviewCloseButton">Tutup</button>
     </div>
 </div>
@@ -444,11 +441,10 @@
         const title = document.getElementById('surveiPreviewTitle');
         const description = document.getElementById('surveiPreviewDescription');
         const frame = document.getElementById('surveiPreviewFrame');
-        const link = document.getElementById('surveiPreviewLink');
         const closeButton = document.getElementById('surveiPreviewClose');
         const closeFooterButton = document.getElementById('surveiPreviewCloseButton');
 
-        if (!cards.length || !overlay || !drawer || !title || !description || !frame || !link) {
+        if (!cards.length || !overlay || !drawer || !title || !description || !frame) {
             return;
         }
 
@@ -459,7 +455,6 @@
             title.textContent = previewTitle;
             description.textContent = previewTitle;
             frame.setAttribute('src', previewLink ? `${previewLink}#toolbar=0&navpanes=0` : '');
-            link.setAttribute('href', previewLink);
 
             overlay.classList.add('is-open');
             drawer.classList.add('is-open');
