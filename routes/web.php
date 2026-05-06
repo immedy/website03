@@ -96,6 +96,10 @@ Route::controller(InformasiController::class)->group(function(){
     route::get('/dashboard/galery','galeryDashboardPage')->middleware('auth');
     route::post('addImagesToGalery','addImagesToGalery')->name('addImagesToGalery')->middleware('auth');
     route::delete('deleteImagesToGalery/{id}','deleteImagesToGalery')->name('deleteImagesToGalery')->middleware('auth');
+    route::get('/penangananPengaduan', 'penangananPengaduan')->name('penangananPengaduan');
+    route::get('/dashboard/penanganan-pengaduan', 'penangananPengaduanDashboard')->name('dashboardPenangananPengaduan')->middleware('auth');
+    route::post('/dashboard/penanganan-pengaduan', 'addPenangananPengaduan')->name('addPenangananPengaduan')->middleware('auth');
+    route::delete('/dashboard/penanganan-pengaduan/{id}', 'deletePenangananPengaduan')->name('deletePenangananPengaduan')->middleware('auth');
 
 });
 

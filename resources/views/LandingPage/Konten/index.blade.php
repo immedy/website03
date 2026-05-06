@@ -49,7 +49,14 @@
             'title' => 'Jadwal Poliklinik',
             'href' => route('JadwalDokter'),
             'target' => null,
-        ]
+        ],
+         [
+            'icon' => 'LandingPage/icon/pengaduan.png',
+            'title' => 'Penanganan Pengaduan',
+            'href' => route('penangananPengaduan'),
+            'target' => null,
+        ],
+
     ];
 @endphp
  <!-- slider_area_start -->
