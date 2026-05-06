@@ -9,6 +9,7 @@ use App\Models\dokter;
 use App\Models\dokumen;
 use App\Models\faq;
 use App\Models\IkmDocument;
+use App\Models\IkmSurvei;
 use App\Models\instalasi;
 use App\Models\jadwaldokter;
 use App\Models\laporankerusakan;
@@ -162,10 +163,18 @@ class MenuUtamaController extends Controller
     {
         $search = trim((string) request('q', ''));
         $ikmDocuments = IkmDocument::where('status', true)->filter()->latest('id')->get();
+        $surveiDocuments = IkmSurvei::with('pegawai')
+            ->where('status', true)
+            ->when($search !== '', function ($query) use ($search) {
+                $query->where('deskripsi', 'like', '%' . $search . '%');
+            })
+            ->latest('id')
+            ->get();
 
         return view('LandingPage.Konten.LayananMedis.ikm', [
             'internalDocuments' => $ikmDocuments->where('sumber_dokemen', 33)->values(),
             'externalDocuments' => $ikmDocuments->where('sumber_dokemen', 34)->values(),
+            'surveiDocuments' => $surveiDocuments,
             'search' => $search,
         ]);
     }

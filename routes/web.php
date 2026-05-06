@@ -70,6 +70,11 @@ Route::controller(IkmDocumentController::class)->group(function(){
     route::post('/dashboard/ikm','store')->middleware('auth')->name('dashboardIkmStore');
     route::put('/dashboard/ikm/{id}','update')->middleware('auth')->name('dashboardIkmUpdate');
     route::delete('/dashboard/ikm/{id}','destroy')->middleware('auth')->name('dashboardIkmDelete');
+
+    route::get('/dashboard/ikm/survei','survey')->middleware('auth')->name('dashboardIkmSurvey');
+    route::post('/dashboard/ikm/survei','surveyStore')->middleware('auth')->name('dashboardIkmSurveyStore');
+    route::put('/dashboard/ikm/survei/{id}','surveyUpdate')->middleware('auth')->name('dashboardIkmSurveyUpdate');
+    route::delete('/dashboard/ikm/survei/{id}','surveyDestroy')->middleware('auth')->name('dashboardIkmSurveyDelete');
 });
 Route::controller(ProfilController::class)->group(function(){
     route::get('/profil/sejarah','sejarah');
