@@ -19,7 +19,11 @@ class direktur extends Model
 
     public function getFormatPeriodeAkhirAttribute()
     {
-        $schedule_date = Carbon::parse($this->attributes['akhir_periode']);
-        return $schedule_date->isoFormat('MMMM Y');
+        if (empty($this->attributes['akhir_periode'])) {
+        return null;
+    }
+
+    $schedule_date = Carbon::parse($this->attributes['akhir_periode']);
+    return $schedule_date->isoFormat('MMMM Y');
     }
 }
