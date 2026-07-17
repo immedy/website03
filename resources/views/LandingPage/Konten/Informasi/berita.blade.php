@@ -26,7 +26,8 @@
                             </div>
                         @endforeach
                     </div>
-                    <div class="navigation-top">
+                    <div class="navigation-top mt-4">
+                        {{ $berita->links('pagination::bootstrap-4') }}
                     </div>
                 </div>
                 <div class="col-lg-4">

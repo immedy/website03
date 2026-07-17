@@ -20,7 +20,7 @@ class InformasiController extends Controller
     public function BeritaLandingPage()
     {
         return view('LandingPage.Konten.Informasi.berita',[
-            'berita' => berita::latest()->get(),
+            'berita' => berita::latest()->paginate(10),
             'instalasi' => instalasi::all()
         ]);
     }

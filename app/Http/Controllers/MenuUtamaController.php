@@ -26,7 +26,7 @@ class MenuUtamaController extends Controller
     {
         return view('LandingPage.Konten.index',[
             'berita' => berita::latest()->paginate(3),
-            'dokter' => dokter::where('status', 1)->get(),
+            'dokter' => dokter::with('referensi')->where('status', 1)->get(),
             'instalasi' => instalasi::where('status',1)->get(),
             'carosel' => carousel::all()
         ]);
@@ -112,7 +112,7 @@ class MenuUtamaController extends Controller
     public function JadwalDokter()
     {
         return view('LandingPage.Konten.JadwalDokter.JadwalDokter',[
-            'jadwalDokter' =>jadwaldokter::where('status_aktif', 1)->get()
+            'jadwalDokter' => jadwaldokter::with('NamaDokter.referensi')->where('status_aktif', 1)->get()
         ]);
     }
 
